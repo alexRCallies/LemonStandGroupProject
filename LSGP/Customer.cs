@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LSGP
 {
-    class Customer : Day
+    class Customer
     {
         // Member Variables
 
