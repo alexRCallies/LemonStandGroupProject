@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace LSGP
 {
-    class Wallet
+   public class Wallet
     {
+        public double money;
+        public Wallet()
+        {
+            money = 20;
+        }
+             public void NewBalance()
+        {
+            Console.WriteLine(money);
+        }
+
     }
 }

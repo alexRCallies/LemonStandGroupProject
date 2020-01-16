@@ -47,9 +47,13 @@
     <Compile Include="Ice Cube.cs" />
     <Compile Include="Items.cs" />
     <Compile Include="Lemon.cs" />
+    <Compile Include="Pitcher.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Store.cs" />
     <Compile Include="Sugar Cube.cs" />
+    <Compile Include="Wallet.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace LSGP
 {
-    abstract class Items
+   public abstract class Items
     {
         public string name;
         public double price;
+        public int numToBuy;
         
          
 
