@@ -25,6 +25,7 @@ namespace LSGP
 
         // Member Methods
 
+
          public void WeatherSelection() // random list selection for predicted forecast
          {
             Random random = new Random();
@@ -34,6 +35,7 @@ namespace LSGP
             Console.WriteLine("Todays Forecast Weather " + predictedForecast);
                         
          }
+
 
     }
 }

@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace LSGP
 {
-    class Ice_Cube : Items
+   public class Ice_Cube : Items
     {
+        public int numInInventory;
         public Ice_Cube ()
         {
             name = "Ice Cube";
             price = 0.5;
+            
         }
     }
 }

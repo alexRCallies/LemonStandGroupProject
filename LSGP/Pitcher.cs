@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LSGP
 {
-    class Pitcher
+   public class Pitcher
     {
         public int cupsPerPitcher;
         public int numOfPitchers;

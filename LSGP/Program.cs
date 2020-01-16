@@ -10,9 +10,10 @@ namespace LSGP
     {
         static void Main(string[] args)
         {
-            Weather NewGame = new Weather();
-            NewGame.WeatherSelection();
-            NewGame.Temperature();
+            Player player = new Player();
+            player.FindPlayerName();
+            player.PlayerChoice();
+            Console.ReadLine();
         }
     }
 }
