@@ -31,7 +31,7 @@ namespace LSGP
             {
                 Console.WriteLine($"Name: {item.name + " Price: " + item.price}");
             }
-            //for (i = 1; i < storeStock.Count; i++) ;
+           
 
         }
         public void BuyLemons(List<Lemon>lemons)
@@ -54,6 +54,11 @@ namespace LSGP
                 inventory.ShowCurrentInventory();
                 player.wallet.NewBalance();
             }
+            else
+            {
+                Console.WriteLine("Not enough funds :(");
+                player.PlayerChoice();
+            }
         }
         public void BuySugarCubes(List<Sugar_Cube> sugarCubes)
         {
@@ -74,6 +79,11 @@ namespace LSGP
                 sugarCubes[0].numInInventory += player.howManyToBuy;
                 inventory.ShowCurrentInventory();
                 player.wallet.NewBalance();
+            }
+            else
+            {
+                Console.WriteLine("Not enough funds :(");
+                player.PlayerChoice();
             }
         }
         public void BuyIceCubes(List<Ice_Cube> iceCubes)
@@ -96,6 +106,11 @@ namespace LSGP
                 inventory.ShowCurrentInventory();
                 player.wallet.NewBalance();
             }
+            else
+            {
+                Console.WriteLine("Not enough funds :(");
+                player.PlayerChoice();
+            }
         }
         public void BuyCups(List<Cup> cups)
         {
@@ -116,6 +131,11 @@ namespace LSGP
                 cups[0].numInInventory += (player.howManyToBuy * cups[0].numOfCupsInAPack);
                 inventory.ShowCurrentInventory();
                 player.wallet.NewBalance();
+            }
+            else
+            {
+                Console.WriteLine("Not enough funds :(");
+                player.PlayerChoice();
             }
         }
         public void BuyItems()
@@ -149,11 +169,6 @@ namespace LSGP
             {
                 BuyItems();
             }
-           
-
-
-
-
         }
     }
 }
