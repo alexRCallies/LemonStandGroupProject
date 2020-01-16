@@ -12,11 +12,12 @@ namespace LSGP
 
         public string condition;
         public int temperature;
-        List<string> weatherConditions = new List<string>() { "Sunny", "Cloudy", "Rainy", "Storms", "Snow" };
         public string predictedForecast;
+        public int actualTemperature;
 
-        Random random = new Random();
+
         
+
         // Constructors
 
         
@@ -24,21 +25,15 @@ namespace LSGP
 
         // Member Methods
 
-        public void WeatherSelection()
-        {
-            int weatherSelect = random.Next(1,6); 
-            string predictedForecast = weatherSelect[];
-            Console.WriteLine(predictedForecast);
-        }
-
-        public void Temperature()
-        {
-            int randomTemp = random.Next(40, 110);
-            this.temperature = randomTemp;
-            Console.WriteLine(temperature);
-        }
-
-
+         public void WeatherSelection() // random list selection for predicted forecast
+         {
+            Random random = new Random();
+            var list = new List<string>() { "Sunny", "Cloudy", "Rainy", "ThunderStorms", "SnowStorms" };
+            int index = random.Next(list.Count);
+            predictedForecast = list[index];
+            Console.WriteLine("Todays Forecast Weather " + predictedForecast);
+                        
+         }
 
     }
 }
