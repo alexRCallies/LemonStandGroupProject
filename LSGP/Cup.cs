@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace LSGP
 {
-    class Cup : Items
+   public class Cup : Items
     {
+       public int numOfCupsInAPack = 20;
+        public int numInInventory;
         public Cup()
         {
             name = "Cups";

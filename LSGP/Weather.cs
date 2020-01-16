@@ -24,19 +24,19 @@ namespace LSGP
 
         // Member Methods
 
-        public void WeatherSelection()
-        {
-            int weatherSelect = random.Next(1,6); 
-            string predictedForecast = weatherSelect[];
-            Console.WriteLine(predictedForecast);
-        }
+        //public void WeatherSelection()
+        //{
+        //    int weatherSelect = random.Next(1,6); 
+        //    string predictedForecast = weatherSelect[];
+        //    Console.WriteLine(predictedForecast);
+        //}
 
-        public void Temperature()
-        {
-            int randomTemp = random.Next(40, 110);
-            this.temperature = randomTemp;
-            Console.WriteLine(temperature);
-        }
+        //public void Temperature()
+        //{
+        //    int randomTemp = random.Next(40, 110);
+        //    this.temperature = randomTemp;
+        //    Console.WriteLine(temperature);
+        //}
 
 
 

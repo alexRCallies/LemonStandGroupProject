@@ -14,7 +14,8 @@ namespace LSGP
         Cup cups = new Cup();
         List<Items> storeStock = new List<Items>();
         Player player = new Player();
-       public int i;
+        Inventory inventory = new Inventory();
+        
         public double finalSale;
         public Store()
         {
@@ -26,42 +27,119 @@ namespace LSGP
         }
         public void PrintStoreStock()
         {
-            foreach(Items item in storeStock)
+            foreach (Items item in storeStock)
             {
                 Console.WriteLine($"Name: {item.name + " Price: " + item.price}");
             }
-            for (i = 1; i < storeStock.Count; i++) ;
-           
+            //for (i = 1; i < storeStock.Count; i++) ;
+
+        }
+        public void BuyLemons(List<Lemon>lemons)
+        {
+            Console.WriteLine("How many would you like to buy");
+            try
+            {
+                player.howManyToBuy = int.Parse(Console.ReadLine());
+            }
+            catch(FormatException)
+            {
+                Console.WriteLine("Enter A Number");
+            }
+            finalSale = lemon.price * player.howManyToBuy;
+            Console.WriteLine("The cost will be: "+ finalSale);
+            if(player.wallet.money >= finalSale)
+            {
+                player.wallet.money -= finalSale;
+                lemons[0].numInInventory += player.howManyToBuy;
+                inventory.ShowCurrentInventory();
+                player.wallet.NewBalance();
+            }
+        }
+        public void BuySugarCubes(List<Sugar_Cube> sugarCubes)
+        {
+            Console.WriteLine("How many would you like to buy");
+            try
+            {
+                player.howManyToBuy = int.Parse(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Enter A Number");
+            }
+            finalSale = sugarCube.price * player.howManyToBuy;
+            Console.WriteLine("The cost will be: " + finalSale);
+            if (player.wallet.money >= finalSale)
+            {
+                player.wallet.money -= finalSale;
+                sugarCubes[0].numInInventory += player.howManyToBuy;
+                inventory.ShowCurrentInventory();
+                player.wallet.NewBalance();
+            }
+        }
+        public void BuyIceCubes(List<Ice_Cube> iceCubes)
+        {
+            Console.WriteLine("How many would you like to buy");
+            try
+            {
+                player.howManyToBuy = int.Parse(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Enter A Number");
+            }
+            finalSale = iceCube.price * player.howManyToBuy;
+            Console.WriteLine("The cost will be: " + finalSale);
+            if (player.wallet.money >= finalSale)
+            {
+                player.wallet.money -= finalSale;
+                iceCubes[0].numInInventory += player.howManyToBuy;
+                inventory.ShowCurrentInventory();
+                player.wallet.NewBalance();
+            }
+        }
+        public void BuyCups(List<Cup> cups)
+        {
+            Console.WriteLine("How many would you like to buy");
+            try
+            {
+                player.howManyToBuy = int.Parse(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Enter A Number");
+            }
+            finalSale = cups[0].price * player.howManyToBuy;
+            Console.WriteLine("The cost will be: " + finalSale);
+            if (player.wallet.money >= finalSale)
+            {
+                player.wallet.money -= finalSale;
+                cups[0].numInInventory += (player.howManyToBuy * cups[0].numOfCupsInAPack);
+                inventory.ShowCurrentInventory();
+                player.wallet.NewBalance();
+            }
         }
         public void BuyItems()
         {
             PrintStoreStock();
+            player.inventory.ShowCurrentInventory();
+            player.wallet.NewBalance();
             Console.WriteLine("Would you like to buy anything?");
             player.input = Console.ReadLine();
-            if (player.input == storeStock[i].name)
+            if(player.input == storeStock[0].name)
             {
-                Console.WriteLine("How many would you like to buy");
-                try
-                {
-                    player.howManyToBuy = int.Parse(Console.ReadLine());
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Please select a number you wish to buy");
-                }
-                Console.WriteLine("You want to buy "+ player.howManyToBuy+" "+ storeStock[i].name + " Yes/No");
-                player.input = Console.ReadLine();
-                if(player.input == "Yes")
-                {
-                    finalSale = player.howManyToBuy * storeStock[i].price;
-                    player.wallet.money -= finalSale;
-                }
-                else
-                {
-                    BuyItems();
-                }
-
-
+                BuyLemons(inventory.lemons);
+            }
+           else if(player.input == storeStock[1].name)
+            {
+                BuySugarCubes(inventory.sugarCubes);
+            }
+            else if(player.input == storeStock[2].name)
+            {
+                BuyIceCubes(inventory.iceCubes);
+            }
+            else if(player.input == storeStock[3].name)
+            {
+                BuyCups(inventory.cups);
             }
             else if(player.input == "No")
             {
@@ -71,6 +149,12 @@ namespace LSGP
             {
                 BuyItems();
             }
+           
+
+
+
+
         }
     }
 }
+

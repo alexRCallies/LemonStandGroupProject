@@ -12,7 +12,8 @@ namespace LSGP
        public Wallet wallet;
         public string input;
         public int howManyToBuy;
-        Store store = new Store();
+        Store store;
+       public Inventory inventory = new Inventory();
         
 
         public Player()
@@ -29,11 +30,15 @@ namespace LSGP
         public void PlayerChoice()
         {
             input = Console.ReadLine();
-            if(input == "Store")
+            if (input == "Store")
             {
+                store = new Store();
                 store.BuyItems();
             }
-            
+            else if (input == "Inventory") 
+            {
+                inventory.ShowCurrentInventory();
+            }            
         }
     }
 }
