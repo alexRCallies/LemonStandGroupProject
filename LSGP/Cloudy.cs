@@ -16,13 +16,5 @@ namespace LSGP
 
         //member methods
 
-        public override void Temperature()
-        {
-           
-            int randomTemp = random.Next(65, 95);
-            temperature = randomTemp -= 5;
-            base.Temperature();
-
-        }
     }
 }
