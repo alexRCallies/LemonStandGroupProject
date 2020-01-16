@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LSGP
 {
-    class Cups : Items
+    class Cup : Items
     {
-        public Cups()
+        public Cup()
         {
             name = "Cups";
             price = 5;

@@ -11,7 +11,7 @@ namespace LSGP
         Lemon lemon = new Lemon();
         Sugar_Cube sugarCube = new Sugar_Cube();
         Ice_Cube iceCube = new Ice_Cube();
-        Cups cups = new Cups();
+        Cup cups = new Cup();
         List<Items> storeStock = new List<Items>();
         Player player = new Player();
        public int i;

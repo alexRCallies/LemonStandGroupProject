@@ -9,6 +9,7 @@ namespace LSGP
     class Pitcher
     {
         public int cupsPerPitcher;
+        public int numOfPitchers;
         public Pitcher()
         {
             this.cupsPerPitcher = 20;
