@@ -29,6 +29,7 @@ namespace LSGP
         }
         public void PlayerChoice()
         {
+            Console.WriteLine("What do you want to do Store/Inventory");
             input = Console.ReadLine();
             if (input == "Store")
             {
