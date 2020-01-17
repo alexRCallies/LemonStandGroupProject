@@ -14,7 +14,7 @@ namespace LSGP
         Cup cups = new Cup();
         List<Items> storeStock = new List<Items>();
         Player player = new Player();
-        Inventory inventory = new Inventory();
+        
         
         public double finalSale;
         public Store()
@@ -34,7 +34,7 @@ namespace LSGP
            
 
         }
-        public void BuyLemons(List<Lemon>lemons)
+        public void BuyLemons()
         {
             Console.WriteLine("How many would you like to buy");
             try
@@ -50,8 +50,8 @@ namespace LSGP
             if(player.wallet.money >= finalSale)
             {
                 player.wallet.money -= finalSale;
-                lemons[0].numInInventory += player.howManyToBuy;
-                inventory.ShowCurrentInventory();
+                player.inventory.lemons[0].numInInventory += player.howManyToBuy;
+                player.inventory.ShowCurrentInventory();
                 player.wallet.NewBalance();
             }
             else
@@ -60,7 +60,7 @@ namespace LSGP
                 player.PlayerChoice();
             }
         }
-        public void BuySugarCubes(List<Sugar_Cube> sugarCubes)
+        public void BuySugarCubes()
         {
             Console.WriteLine("How many would you like to buy");
             try
@@ -76,8 +76,8 @@ namespace LSGP
             if (player.wallet.money >= finalSale)
             {
                 player.wallet.money -= finalSale;
-                sugarCubes[0].numInInventory += player.howManyToBuy;
-                inventory.ShowCurrentInventory();
+                player.inventory.sugarCubes[0].numInInventory += player.howManyToBuy;
+                player.inventory.ShowCurrentInventory();
                 player.wallet.NewBalance();
             }
             else
@@ -86,7 +86,7 @@ namespace LSGP
                 player.PlayerChoice();
             }
         }
-        public void BuyIceCubes(List<Ice_Cube> iceCubes)
+        public void BuyIceCubes()
         {
             Console.WriteLine("How many would you like to buy");
             try
@@ -102,8 +102,8 @@ namespace LSGP
             if (player.wallet.money >= finalSale)
             {
                 player.wallet.money -= finalSale;
-                iceCubes[0].numInInventory += player.howManyToBuy;
-                inventory.ShowCurrentInventory();
+                player.inventory.iceCubes[0].numInInventory += player.howManyToBuy;
+                player.inventory.ShowCurrentInventory();
                 player.wallet.NewBalance();
             }
             else
@@ -112,7 +112,7 @@ namespace LSGP
                 player.PlayerChoice();
             }
         }
-        public void BuyCups(List<Cup> cups)
+        public void BuyCups()
         {
             Console.WriteLine("How many would you like to buy");
             try
@@ -123,13 +123,13 @@ namespace LSGP
             {
                 Console.WriteLine("Enter A Number");
             }
-            finalSale = cups[0].price * player.howManyToBuy;
+            finalSale = player.inventory.cups[0].price * player.howManyToBuy;
             Console.WriteLine("The cost will be: " + finalSale);
             if (player.wallet.money >= finalSale)
             {
                 player.wallet.money -= finalSale;
-                cups[0].numInInventory += (player.howManyToBuy * cups[0].numOfCupsInAPack);
-                inventory.ShowCurrentInventory();
+                player.inventory.cups[0].numInInventory += (player.howManyToBuy * player.inventory.cups[0].numOfCupsInAPack);
+                player.inventory.ShowCurrentInventory();
                 player.wallet.NewBalance();
             }
             else
@@ -147,19 +147,23 @@ namespace LSGP
             player.input = Console.ReadLine();
             if(player.input == storeStock[0].name)
             {
-                BuyLemons(inventory.lemons);
+                BuyLemons();
+                BuyItems();
             }
            else if(player.input == storeStock[1].name)
             {
-                BuySugarCubes(inventory.sugarCubes);
+                BuySugarCubes();
+                BuyItems();
             }
             else if(player.input == storeStock[2].name)
             {
-                BuyIceCubes(inventory.iceCubes);
+                BuyIceCubes();
+                BuyItems();
             }
             else if(player.input == storeStock[3].name)
             {
-                BuyCups(inventory.cups);
+                BuyCups();
+                BuyItems();
             }
             else if(player.input == "No")
             {

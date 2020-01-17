@@ -14,6 +14,7 @@ namespace LSGP
         public int howManyToBuy;
         Store store;
        public Inventory inventory = new Inventory();
+        Recipe recipe;
         
 
         public Player()
@@ -29,7 +30,7 @@ namespace LSGP
         }
         public void PlayerChoice()
         {
-            Console.WriteLine("What do you want to do Store/Inventory");
+            Console.WriteLine("What do you want to do Store/Inventory/Recipe");
             input = Console.ReadLine();
             if (input == "Store")
             {
@@ -39,7 +40,14 @@ namespace LSGP
             else if (input == "Inventory") 
             {
                 inventory.ShowCurrentInventory();
-            }            
+                PlayerChoice();
+            } 
+            else if(input == "Recipe")
+            {
+                recipe = new Recipe();
+                recipe.MakeAPitcherOFLemonade();
+                PlayerChoice();
+            }
         }
     }
 }
