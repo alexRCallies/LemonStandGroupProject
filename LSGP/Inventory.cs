@@ -21,10 +21,7 @@ namespace LSGP
         // constructor
         public Inventory()
         {
-            //this.lemon = new Lemon();
-            //this.iceCube = new Ice_Cube();
-            //this.sugarCube = new Sugar_Cube();
-            //this.cup = new Cup();
+            
             lemons.Add(lemon);
             iceCubes.Add(iceCube);
             sugarCubes.Add(sugarCube);

@@ -26,7 +26,7 @@ namespace LSGP
         }
              public void NewBalance()
         {
-            Console.WriteLine("Balance: "+money);
+            Console.WriteLine("Balance: $"+money);
         }
 
     }

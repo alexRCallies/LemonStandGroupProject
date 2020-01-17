@@ -14,6 +14,7 @@ namespace LSGP
             name = "Cups";
             price = 5;
             numInInventory = 0;
+            
         }
     }
 }

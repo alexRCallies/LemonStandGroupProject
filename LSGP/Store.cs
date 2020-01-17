@@ -51,7 +51,7 @@ namespace LSGP
             if(player.wallet.Money >= finalSale)
             {
                 player.wallet.Money -= finalSale;
-                player.inventory.lemons[0].numInInventory += howManyToBuy;
+               player.inventory.lemons[0].numInInventory += howManyToBuy;
                 player.inventory.ShowCurrentInventory();
                 player.wallet.NewBalance();
             }

@@ -14,6 +14,7 @@ namespace LSGP
         public int temperature;
         public string predictedForecast;
         public int actualTemperature;
+        List<string> weatherConditions;
 
         Random random = new Random();
 
@@ -23,7 +24,7 @@ namespace LSGP
 
 
 
-        // Member Methods
+        // Member Methods  OPEN CLOSED PRINCIPLE - ALL METHODS CAN BE EXPENDED IF NEEDED TO EXPAND GAME PLAY  - Nick
 
         public void MasterWeather()
         {
@@ -32,25 +33,26 @@ namespace LSGP
             SetWeather();
             SetTemperature();
         }
-        public void WeatherSelection() // random list selection for predicted forecast
+        
+        public void WeatherSelection() // SINGLE RESPONSIBILITY EXAMPLE - random list selection for forecast weather condition - 
         {
-            var list = new List<string>() { "Sunny", "Cloudy", "Rainy", "ThunderStorms" };
-            int index = random.Next(list.Count);
-            predictedForecast = list[index];
+            weatherConditions = new List<string>() { "Sunny", "Cloudy", "Rainy", "ThunderStorms" };
+            int index = random.Next(weatherConditions.Count);
+            predictedForecast = weatherConditions[index];
         }
-        public void ForecastTemperature()
+        public void ForecastTemperature()  // SINGLE RESPONSIBILITY EXAMPLE - random used to select the forcast temp - 
         {
             temperature = random.Next(45, 95);
             Console.WriteLine("The Forecast for today is " + predictedForecast + " & " + temperature + " degrees.");
         }
 
-        public void SetWeather()
+        public void SetWeather()  // SINGLE RESPONSIBILITY EXAMPLE - random used to select the actual weather -
         {
-            var list = new List<string>() { "Cloudy", "Rainy", "ThunderStorms", "Sunny" };
-            int index = random.Next(list.Count);
-            condition = list[index];
+            weatherConditions = new List<string>() { "Cloudy", "Rainy", "ThunderStorms", "Sunny" };
+            int index = random.Next(weatherConditions.Count);
+            condition = weatherConditions[index];
         }
-        public void SetTemperature()
+        public void SetTemperature()  // SINGLE RESPONSIBILITY EXAMPLE - sets the actual temp based on the actual weather condition - Nick
         {
             
             if (condition == "Cloudy")

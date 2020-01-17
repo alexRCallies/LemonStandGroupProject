@@ -11,8 +11,8 @@ namespace LSGP
         public string name;
         public Wallet wallet;
         public string input;
+       public Recipe recipe;
         public Inventory inventory;
-        public Recipe recipe;
         
 
         public Player()
