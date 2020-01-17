@@ -8,7 +8,7 @@ namespace LSGP
 {
    public class Cup : Items
     {
-       public int numOfCupsInAPack = 20;
+        public int numOfCupsInAPack = 20;
         public int numInInventory;
         public Cup()
         {

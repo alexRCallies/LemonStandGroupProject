@@ -9,11 +9,11 @@ namespace LSGP
     class Player
     {
         public string name;
-       public Wallet wallet;
+        public Wallet wallet;
         public string input;
         public int howManyToBuy;
         Store store;
-       public Inventory inventory = new Inventory();
+        public Inventory inventory = new Inventory();
         Recipe recipe;
         
 
