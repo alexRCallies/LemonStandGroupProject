@@ -14,6 +14,7 @@ namespace LSGP
             player.FindPlayerName();
             player.PlayerChoice();
             Console.ReadLine();
+            
         }
     }
 }
