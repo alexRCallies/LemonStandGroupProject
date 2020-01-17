@@ -8,10 +8,21 @@ namespace LSGP
 {
    public class Wallet
     {
-        public double money;
+        private double money = 20;
+        public double Money
+        {
+            get
+            {
+                return money;
+            }
+            set
+            {
+                money = value;
+            }
+        }
         public Wallet()
         {
-            money = 20;
+          
         }
              public void NewBalance()
         {

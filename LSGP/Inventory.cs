@@ -9,18 +9,22 @@ namespace LSGP
    class Inventory
     {
         // member variables 
-        Lemon lemon = new Lemon();
-        Ice_Cube iceCube = new Ice_Cube();
-        Sugar_Cube sugarCube = new Sugar_Cube();
-        Cup cup = new Cup();
-        public List<Lemon> lemons = new List<Lemon>() { };
-        public List<Ice_Cube> iceCubes =new List<Ice_Cube>() { };
-        public List<Cup> cups = new List<Cup>() { };
-        public List<Sugar_Cube> sugarCubes = new List<Sugar_Cube>() { };
+        public Lemon lemon = new Lemon();
+        public Ice_Cube iceCube = new Ice_Cube();
+        public Sugar_Cube sugarCube = new Sugar_Cube();
+        public Cup cup = new Cup();
+        public List<Lemon> lemons = new List<Lemon>();
+        public List<Ice_Cube> iceCubes = new List<Ice_Cube>();
+        public List<Cup> cups = new List<Cup>();
+        public List<Sugar_Cube> sugarCubes = new List<Sugar_Cube>();
 
         // constructor
         public Inventory()
         {
+            //this.lemon = new Lemon();
+            //this.iceCube = new Ice_Cube();
+            //this.sugarCube = new Sugar_Cube();
+            //this.cup = new Cup();
             lemons.Add(lemon);
             iceCubes.Add(iceCube);
             sugarCubes.Add(sugarCube);

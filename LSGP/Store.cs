@@ -13,17 +13,18 @@ namespace LSGP
         Ice_Cube iceCube = new Ice_Cube();
         Cup cups = new Cup();
         List<Items> storeStock = new List<Items>();
-        Player player = new Player();
-        
+        public int howManyToBuy;
+        Player player;
         
         public double finalSale;
-        public Store()
+        public Store(Player player)
         {
+            this.player = player;
             storeStock.Add(lemon);
             storeStock.Add(sugarCube);
             storeStock.Add(iceCube);
             storeStock.Add(cups);
-
+           
         }
         public void PrintStoreStock()
         {
@@ -39,25 +40,25 @@ namespace LSGP
             Console.WriteLine("How many would you like to buy");
             try
             {
-                player.howManyToBuy = int.Parse(Console.ReadLine());
+                howManyToBuy = int.Parse(Console.ReadLine());
             }
             catch(FormatException)
             {
                 Console.WriteLine("Enter A Number");
             }
-            finalSale = lemon.price * player.howManyToBuy;
+            finalSale = lemon.price * howManyToBuy;
             Console.WriteLine("The cost will be: "+ finalSale);
-            if(player.wallet.money >= finalSale)
+            if(player.wallet.Money >= finalSale)
             {
-                player.wallet.money -= finalSale;
-                player.inventory.lemons[0].numInInventory += player.howManyToBuy;
+                player.wallet.Money -= finalSale;
+                player.inventory.lemons[0].numInInventory += howManyToBuy;
                 player.inventory.ShowCurrentInventory();
                 player.wallet.NewBalance();
             }
             else
             {
                 Console.WriteLine("Not enough funds :(");
-                player.PlayerChoice();
+                
             }
         }
         public void BuySugarCubes()
@@ -65,25 +66,25 @@ namespace LSGP
             Console.WriteLine("How many would you like to buy");
             try
             {
-                player.howManyToBuy = int.Parse(Console.ReadLine());
+                howManyToBuy = int.Parse(Console.ReadLine());
             }
             catch (FormatException)
             {
                 Console.WriteLine("Enter A Number");
             }
-            finalSale = sugarCube.price * player.howManyToBuy;
+            finalSale = sugarCube.price * howManyToBuy;
             Console.WriteLine("The cost will be: " + finalSale);
-            if (player.wallet.money >= finalSale)
+            if (player.wallet.Money >= finalSale)
             {
-                player.wallet.money -= finalSale;
-                player.inventory.sugarCubes[0].numInInventory += player.howManyToBuy;
+                player.wallet.Money -= finalSale;
+                player.inventory.sugarCube.numInInventory += howManyToBuy;
                 player.inventory.ShowCurrentInventory();
                 player.wallet.NewBalance();
             }
             else
             {
                 Console.WriteLine("Not enough funds :(");
-                player.PlayerChoice();
+                
             }
         }
         public void BuyIceCubes()
@@ -91,25 +92,25 @@ namespace LSGP
             Console.WriteLine("How many would you like to buy");
             try
             {
-                player.howManyToBuy = int.Parse(Console.ReadLine());
+                howManyToBuy = int.Parse(Console.ReadLine());
             }
             catch (FormatException)
             {
                 Console.WriteLine("Enter A Number");
             }
-            finalSale = iceCube.price * player.howManyToBuy;
+            finalSale = iceCube.price * howManyToBuy;
             Console.WriteLine("The cost will be: " + finalSale);
-            if (player.wallet.money >= finalSale)
+            if (player.wallet.Money >= finalSale)
             {
-                player.wallet.money -= finalSale;
-                player.inventory.iceCubes[0].numInInventory += player.howManyToBuy;
+                player.wallet.Money -= finalSale;
+                player.inventory.iceCube.numInInventory += howManyToBuy;
                 player.inventory.ShowCurrentInventory();
                 player.wallet.NewBalance();
             }
             else
             {
                 Console.WriteLine("Not enough funds :(");
-                player.PlayerChoice();
+                
             }
         }
         public void BuyCups()
@@ -117,25 +118,25 @@ namespace LSGP
             Console.WriteLine("How many would you like to buy");
             try
             {
-                player.howManyToBuy = int.Parse(Console.ReadLine());
+                howManyToBuy = int.Parse(Console.ReadLine());
             }
             catch (FormatException)
             {
                 Console.WriteLine("Enter A Number");
             }
-            finalSale = player.inventory.cups[0].price * player.howManyToBuy;
+            finalSale = cups.price * howManyToBuy;
             Console.WriteLine("The cost will be: " + finalSale);
-            if (player.wallet.money >= finalSale)
+            if (player.wallet.Money >= finalSale)
             {
-                player.wallet.money -= finalSale;
-                player.inventory.cups[0].numInInventory += (player.howManyToBuy * player.inventory.cups[0].numOfCupsInAPack);
+                player.wallet.Money -= finalSale;
+                player.inventory.cup.numInInventory += (howManyToBuy * cups.numOfCupsInAPack);
                 player.inventory.ShowCurrentInventory();
                 player.wallet.NewBalance();
             }
             else
             {
                 Console.WriteLine("Not enough funds :(");
-                player.PlayerChoice();
+                
             }
         }
         public void BuyItems()
@@ -167,7 +168,7 @@ namespace LSGP
             }
             else if(player.input == "No")
             {
-                player.PlayerChoice();
+                Console.WriteLine("You have left the store");
             }
             else
             {

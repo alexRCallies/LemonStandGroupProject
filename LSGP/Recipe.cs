@@ -9,7 +9,7 @@ namespace LSGP
     class Recipe
     {
         Pitcher pitcher = new Pitcher();
-        
+        Inventory inventory;
         public int addLemons;
         public int addSugar;
         public int addIce;
@@ -20,13 +20,13 @@ namespace LSGP
         int lemonsInLemonade;
         int sugarInLemonade;
 
-        Player player = new Player();
-        List<Pitcher> pitchers = new List<Pitcher>();
         
+      
 
-        public Recipe()
+        public Recipe(Inventory inventory)
         {
-
+            this.inventory = inventory;
+            
         }
         public void AddLemonsToLemonade()
         {
@@ -40,7 +40,7 @@ namespace LSGP
             {
                 Console.WriteLine("Please choose a number not a letter");
             }
-            if(player.inventory.lemons[0].numInInventory >= addLemons)
+            if(inventory.lemons[0].numInInventory >= addLemons)
             {
                 if(addLemons >= minimumAmountOfLemons)
                 {
@@ -48,7 +48,7 @@ namespace LSGP
                     {  
                             pitcher.PitcherSize -= addLemons;
                             lemonsInLemonade = addLemons;
-                        player.inventory.lemons[0].numInInventory -= addLemons;
+                        inventory.lemons[0].numInInventory -= addLemons;
                         
                     }
                 }
@@ -61,7 +61,7 @@ namespace LSGP
             else
             {
                 Console.WriteLine("Insufficient Lemons");
-                player.PlayerChoice();
+                
                 
             }
         }
@@ -77,7 +77,7 @@ namespace LSGP
             {
                 Console.WriteLine("Enter a number");
             }
-            if(player.inventory.sugarCubes[0].numInInventory >= addSugar)
+            if(inventory.sugarCubes[0].numInInventory >= addSugar)
             {
                 if(addSugar >= minimumAmountOfSugar)
                 {
@@ -86,7 +86,7 @@ namespace LSGP
                         if (addSugar == pitcher.PitcherSize)
                         {
                             sugarInLemonade = addSugar;
-                                player.inventory.sugarCubes[0].numInInventory -= addSugar;
+                                inventory.sugarCubes[0].numInInventory -= addSugar;
                         }
                         else
                         {
@@ -109,7 +109,7 @@ namespace LSGP
             else
             {
                 Console.WriteLine("Insufficient Sugar");
-                player.PlayerChoice();
+                
             }
         }
         public void AddIceToLemonade()
@@ -124,16 +124,16 @@ namespace LSGP
             {
                 Console.WriteLine("Enter a number");
             }
-            if(player.inventory.iceCubes[0].numInInventory >= addIce)
+            if(inventory.iceCubes[0].numInInventory >= addIce)
             {
                 
                 iceInLemonade = addIce;
-                player.inventory.iceCubes[0].numInInventory -= addIce;
+                inventory.iceCubes[0].numInInventory -= addIce;
             }
             else
             {
                 Console.WriteLine("Insufficient Ice");
-                player.PlayerChoice();
+                
             }
         }
         public void MakeAPitcherOFLemonade()
@@ -141,10 +141,11 @@ namespace LSGP
             AddLemonsToLemonade();
             AddSugarToLemonade();
             AddIceToLemonade();
+            pitcher.PitcherSize = 6;
             pitcher.sweetLevel = sugarInLemonade;
             pitcher.sourLevel = lemonsInLemonade;
             pitcher.coldLevel = iceInLemonade;
-            pitchers.Add(pitcher);
+            pitcher.pitchers.Add(pitcher);
             pitcher.PrintPitchers();
             
         }

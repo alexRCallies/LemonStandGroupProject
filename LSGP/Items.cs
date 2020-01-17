@@ -10,7 +10,7 @@ namespace LSGP
     {
         public string name;
         public double price;
-        
+        public int numInInventory;
         
          
 

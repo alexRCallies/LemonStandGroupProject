@@ -8,12 +8,12 @@ namespace LSGP
 {
    public class Lemon : Items
     {
-        public int numInInventory;
+        
         public Lemon()
         {
             name = "Lemon";
             price = 1;
-            
+            numInInventory = 0; 
 
         }
     }

@@ -9,11 +9,11 @@ namespace LSGP
    public class Cup : Items
     {
        public int numOfCupsInAPack = 20;
-        public int numInInventory;
         public Cup()
         {
             name = "Cups";
             price = 5;
+            numInInventory = 0;
         }
     }
 }

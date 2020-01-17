@@ -10,9 +10,8 @@ namespace LSGP
     {
         static void Main(string[] args)
         {
-            Player player = new Player();
-            player.FindPlayerName();
-            player.PlayerChoice();
+            Game game = new Game();
+            game.PlayerChoice();
             Console.ReadLine();
             
         }

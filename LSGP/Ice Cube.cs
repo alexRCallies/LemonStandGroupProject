@@ -8,12 +8,11 @@ namespace LSGP
 {
    public class Ice_Cube : Items
     {
-        public int numInInventory;
         public Ice_Cube ()
         {
             name = "Ice Cube";
             price = 0.5;
-            
+            numInInventory = 0;
         }
     }
 }
