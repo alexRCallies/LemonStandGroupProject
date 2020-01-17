@@ -19,6 +19,7 @@ namespace LSGP
         int iceInLemonade;
         int lemonsInLemonade;
         int sugarInLemonade;
+        
 
         
       
@@ -142,12 +143,13 @@ namespace LSGP
             AddSugarToLemonade();
             AddIceToLemonade();
             pitcher.PitcherSize = 6;
-            pitcher.sweetLevel = sugarInLemonade;
-            pitcher.sourLevel = lemonsInLemonade;
-            pitcher.coldLevel = iceInLemonade;
             pitcher.pitchers.Add(pitcher);
-            pitcher.PrintPitchers();
+            pitcher.pitchers[pitcher.i].sweetLevel = sugarInLemonade;
+            pitcher.pitchers[pitcher.i].sourLevel = lemonsInLemonade;
+            pitcher.pitchers[pitcher.i].coldLevel = iceInLemonade;
             
+            pitcher.PrintPitchers();
+           
         }
     }
 }

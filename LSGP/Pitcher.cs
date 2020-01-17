@@ -15,9 +15,11 @@ namespace LSGP
         public int sweetLevel;
         public int coldLevel;
         public List<Pitcher> pitchers = new List<Pitcher>();
+        public int i;
         public Pitcher()
         {
             this.cupsPerPitcher = 20;
+            int i = pitchers.Count() - 1;
         }
         public void PrintPitchers()
         {
@@ -25,6 +27,7 @@ namespace LSGP
             {
                 Console.WriteLine($"Pitcher  Sour Level: " +sourLevel+ " Sweet Level: " +sweetLevel+ " Cold Level: " + coldLevel);
             }
+            
         }
 
     }
