@@ -13,7 +13,6 @@ namespace LSGP
         public string condition;
         public int temperature;
         public string predictedForecast;
-        public string actualWeather;
         public int actualTemperature;
 
         Random random = new Random();
@@ -49,33 +48,33 @@ namespace LSGP
         {
             var list = new List<string>() { "Cloudy", "Rainy", "ThunderStorms", "Sunny" };
             int index = random.Next(list.Count);
-            actualWeather = list[index];
+            condition = list[index];
         }
         public void SetTemperature()
         {
             
-            if (actualWeather == "Cloudy")
+            if (condition == "Cloudy")
             {
                 actualTemperature = temperature -= 5;
-                Console.WriteLine("Todays actual weather conditions are " +actualWeather + " & "+ actualTemperature + " degrees.");
+                Console.WriteLine("Todays actual weather conditions are " + condition + " & "+ actualTemperature + " degrees.");
                 Console.ReadLine();
             }
-            else if (actualWeather == "Sunny")
+            else if (condition == "Sunny")
             {
                 actualTemperature = temperature += 10;
-                Console.WriteLine("Todays actual weather conditions are " + actualWeather + " & " + actualTemperature + " degrees.");
+                Console.WriteLine("Todays actual weather conditions are " + condition + " & " + actualTemperature + " degrees.");
                 Console.ReadLine();
             }
-            else if (actualWeather == "Rainy")
+            else if (condition == "Rainy")
             {
                 actualTemperature = temperature -= 15;
-                Console.WriteLine("Todays actual weather conditions are " + actualWeather + " & " + actualTemperature + " degrees.");
+                Console.WriteLine("Todays actual weather conditions are " + condition + " & " + actualTemperature + " degrees.");
                 Console.ReadLine();
             }
             else 
             {
                 actualTemperature = temperature -= 13;
-                Console.WriteLine("Todays actual weather conditions are " + actualWeather + " & " + actualTemperature + " degrees.");
+                Console.WriteLine("Todays actual weather conditions are " + condition + " & " + actualTemperature + " degrees.");
                 Console.ReadLine();
             }
 
