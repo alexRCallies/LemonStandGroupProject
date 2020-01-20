@@ -10,12 +10,17 @@ namespace LSGP
     {
         Player player;
         Store store;
+
+        
+
         Weather weather = new Weather();
+
 
         public Game()
         {
             this.player = new Player();
             this.store = new Store(player);
+            
         }
 
         public void RunGame() //Master Method
@@ -98,11 +103,11 @@ namespace LSGP
         }
         public void WeatherForecast()
         {
-            weather.Masterforecast();
+            weather.MasterForecast();
         }
         public void ActualDailyWeather()
         {
-            weather.ActualWeather();
+            weather.ActualDayWeather();
         }
     }
 }

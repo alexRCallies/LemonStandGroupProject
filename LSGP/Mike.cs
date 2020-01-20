@@ -15,6 +15,9 @@ namespace LSGP
             this.chanceToGoToStand = 3;
             this.chanceToBuy = 7;
             this.chanceToBuyAgain = 5;
+            this.chanceToBuyColdLevel = 5;
+            this.chanceToBuyprice = 5;
+            this.chanceToBuySweetLevel = 5;
         }
     }
 }
