@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LSGP
 {
-    class Weather
+   public class Weather
     {
         // Member Variables
 
@@ -14,7 +14,7 @@ namespace LSGP
         public int temperature;
         public string predictedForecast;
         public int actualTemperature;
-        List<string> weatherConditions;
+        public List<string> weatherConditions;
 
         Random random = new Random();
 
@@ -42,6 +42,7 @@ namespace LSGP
             weatherConditions = new List<string>() { "Sunny", "Cloudy", "Rainy", "Thunder Storms" };
             int index = random.Next(weatherConditions.Count);
             predictedForecast = weatherConditions[index];
+            
         }
         public void ForecastTemperature()  // SINGLE RESPONSIBILITY EXAMPLE - random used to select the forcast temp - 
         {
@@ -51,8 +52,13 @@ namespace LSGP
 
         public void ActualConditions()  // SINGLE RESPONSIBILITY EXAMPLE - random used to select the actual weather -
         {
+<<<<<<< HEAD
             weatherConditions = new List<string>() { "Cloudy", "Rainy", "Thunder Storms", "Sunny" };
             int index = random.Next(weatherConditions.Count);
+=======
+            weatherConditions = new List<string>() { "Cloudy", "Rainy", "ThunderStorms", "Sunny" };
+            int index = random.Next(weatherConditions.Count+1);
+>>>>>>> 6576f6673c705f625e7196963c46de36ec3d2ed9
             condition = weatherConditions[index];
         }
         public void ActualTemperature()  // SINGLE RESPONSIBILITY EXAMPLE - sets the actual temp based on the actual weather condition - Nick
