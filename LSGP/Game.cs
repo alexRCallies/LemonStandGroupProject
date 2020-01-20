@@ -59,6 +59,30 @@ namespace LSGP
             {
                 Console.WriteLine("Great! Lets get started!\n");
             }
+            else
+            {
+                Console.WriteLine("That is not a valid answer, Please tray again");
+                InstructionRedo();
+            }
+        }
+        public void InstructionRedo()
+        {
+            Console.WriteLine("\nReady to play?  Yes or No");
+            string confirmation = Console.ReadLine();
+            if ((confirmation == "no") || (confirmation == "No") || (confirmation == "NO") || (confirmation == "n")
+                || (confirmation == "N") || (confirmation == "nope") || (confirmation == "Nope") || (confirmation == "NOPE") ||
+                (confirmation == "NOpe") || (confirmation == "NOPe") || (confirmation == "nOpe"))
+            {
+                Console.WriteLine("Alright, lets go over the instructions again:");
+                RunGame();
+            }
+            else if ((confirmation == "yes") || (confirmation == "Yes") || (confirmation == "YES") || (confirmation == "y")
+                || (confirmation == "Y") || (confirmation == "yup") || (confirmation == "Yup") || (confirmation == "YUP") ||
+                (confirmation == "YUp") || (confirmation == "yUp") || (confirmation == "yuP"))
+            {
+                Console.WriteLine("Great! Lets get started!\n");
+            }
+           
         }
         public string FindPlayerName()
         {

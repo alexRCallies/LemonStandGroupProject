@@ -149,7 +149,7 @@ namespace LSGP
             player.inventory.ShowCurrentInventory();
             player.wallet.NewBalance();
             Console.WriteLine("");
-            Console.WriteLine("What would you like to buy?\n");
+            Console.WriteLine("What would you like to buy? If you are done shopping enter 'Nothing'. \n");
             player.input = Console.ReadLine();
             if ((player.input == storeStock[0].name) || (player.input == "LEMONS") || (player.input == "lemons")
                 || (player.input == "lemon") || (player.input == "LEMON") || (player.input == "Lemons"))
