@@ -34,7 +34,7 @@ namespace LSGP
                 " and see if you can do better. Lastly, set your price \n and sell your lemonade at the stand." +
                 " Try changing \n up the price based on the weather conditions as well.");
             Console.WriteLine("\n\n At the end of the game, you'll see how much money\n you made. Write it down and " +
-                "play again\n to try and beat your score!");
+                "play ain\n to try and beat your score!");
             Console.WriteLine("\nReady to play?  Yes or No" );
             string confirmation = Console.ReadLine();
             if ((confirmation == "no")||(confirmation == "No")||(confirmation == "NO")||(confirmation == "n")
