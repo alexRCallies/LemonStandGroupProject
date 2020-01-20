@@ -141,39 +141,48 @@ namespace LSGP
         }
         public void BuyItems()
         {
+            Game game = new Game();
             PrintStoreStock();
             player.inventory.ShowCurrentInventory();
             player.wallet.NewBalance();
-            Console.WriteLine("Would you like to buy anything?");
+            Console.WriteLine("");
+            Console.WriteLine("What would you like to buy?\n");
             player.input = Console.ReadLine();
-            if(player.input == storeStock[0].name)
+            if((player.input == storeStock[0].name) || (player.input == "LEMONS") || (player.input == "lemons")
+                || (player.input == "lemon") || (player.input == "LEMON") || (player.input == "lemons"))
             {
                 BuyLemons();
                 BuyItems();
             }
-           else if(player.input == storeStock[1].name)
-            {
+            else if((player.input == storeStock[2].name) || (player.input == "Sugar") || (player.input == "SUGAR")
+                || (player.input == "SUGAR CUBE") || (player.input == "SugarCube") || (player.input == "sugar cube") || (player.input == "sugar"))
+            { 
                 BuySugarCubes();
                 BuyItems();
             }
-            else if(player.input == storeStock[2].name)
+            else if((player.input == storeStock[2].name) || (player.input == "Ice") || (player.input == "ICE")
+                || (player.input == "ICE CUBE") || (player.input == "IceCube") || (player.input == "ice cube"))
             {
                 BuyIceCubes();
                 BuyItems();
             }
-            else if(player.input == storeStock[3].name)
+            else if((player.input == storeStock[3].name) || (player.input == "CUPS") || (player.input == "CUP")
+                || (player.input == "cup") || (player.input == "CUps") || (player.input == "cups"))
             {
                 BuyCups();
                 BuyItems();
             }
-            else if(player.input == "No")
+            else if (player.input == "No")
             {
-                Console.WriteLine("You have left the store");
+                Console.WriteLine("Thanks for visiting, you have left the store\n");
+                game.PlayerChoice();
             }
             else
             {
+                Console.WriteLine("That is a not a valid entry, please try again\n");
                 BuyItems();
             }
+          
         }
     }
 }

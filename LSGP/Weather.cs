@@ -26,10 +26,13 @@ namespace LSGP
 
         // Member Methods  OPEN CLOSED PRINCIPLE - ALL METHODS CAN BE EXPENDED IF NEEDED TO EXPAND GAME PLAY  - Nick
 
-        public void MasterWeather()
+        public void Masterforecast()
         {
             WeatherSelection();
             ForecastTemperature();
+        }
+        public void ActualWeather()
+        {
             SetWeather();
             SetTemperature();
         }
