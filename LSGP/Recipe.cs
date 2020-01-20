@@ -19,6 +19,7 @@ namespace LSGP
         int iceInLemonade;
         int lemonsInLemonade;
         int sugarInLemonade;
+        int howManyPitchers;
         
 
         
@@ -49,7 +50,7 @@ namespace LSGP
                     {  
                             pitcher.PitcherSize -= addLemons;
                             lemonsInLemonade = addLemons;
-                        inventory.lemons[0].numInInventory -= addLemons;
+                       
                         
                     }
                 }
@@ -87,11 +88,11 @@ namespace LSGP
                         if (addSugar == pitcher.PitcherSize)
                         {
                             sugarInLemonade = addSugar;
-                                inventory.sugarCubes[0].numInInventory -= addSugar;
+
                         }
                         else
                         {
-                            Console.WriteLine("You need " +pitcher.PitcherSize + " more sugars.");
+                            Console.WriteLine("You need " + pitcher.PitcherSize + " more sugars.");
                             AddSugarToLemonade();
                         }
                     }
@@ -125,16 +126,56 @@ namespace LSGP
             {
                 Console.WriteLine("Enter a number");
             }
-            if(inventory.iceCubes[0].numInInventory >= addIce)
-            {
+            //if(inventory.iceCubes[0].numInInventory >= addIce)
+            //{
                 
                 iceInLemonade = addIce;
-                inventory.iceCubes[0].numInInventory -= addIce;
+               
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Insufficient Ice");
+                
+            //}
+        }
+        public void MakeMultiplePitchers()
+        {
+            Console.WriteLine("How Many Pitchers Do You Want To Make?");
+            try
+            {
+                howManyPitchers = int.Parse(Console.ReadLine());
+            }
+            catch(FormatException)
+            {
+                Console.WriteLine("Please Type A Number");
+            }
+            if(lemonsInLemonade*howManyPitchers <= inventory.lemons[0].numInInventory)
+            {
+                if(sugarInLemonade*howManyPitchers <= inventory.sugarCubes[0].numInInventory)
+                {
+                    if(iceInLemonade*howManyPitchers <= inventory.iceCubes[0].numInInventory)
+                    {
+
+                        inventory.iceCubes[0].numInInventory -= addIce*howManyPitchers;
+                        inventory.sugarCubes[0].numInInventory -= addSugar*howManyPitchers;
+                        inventory.lemons[0].numInInventory -= addLemons*howManyPitchers;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Insufficient Ice");
+                        MakeAPitcherOFLemonade();
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Insufficient Sugar");
+                    MakeAPitcherOFLemonade();
+                }
             }
             else
             {
-                Console.WriteLine("Insufficient Ice");
-                
+                Console.WriteLine("Insufficient Lemons");
+                MakeAPitcherOFLemonade();
             }
         }
         public void MakeAPitcherOFLemonade()
@@ -143,12 +184,18 @@ namespace LSGP
             AddSugarToLemonade();
             AddIceToLemonade();
             pitcher.PitcherSize = 6;
-            pitcher.pitchers.Add(pitcher);
-            pitcher.pitchers[pitcher.i].sweetLevel = sugarInLemonade;
-            pitcher.pitchers[pitcher.i].sourLevel = lemonsInLemonade;
-            pitcher.pitchers[pitcher.i].coldLevel = iceInLemonade;
-            
+            MakeMultiplePitchers();
+
+            pitcher.sweetLevel = sugarInLemonade;
+            pitcher.sourLevel = lemonsInLemonade;
+            pitcher.coldLevel = iceInLemonade;
+            while (howManyPitchers >= 1)
+            {
+                howManyPitchers--;
+                pitcher.pitchers.Add(pitcher);
+            }
             pitcher.PrintPitchers();
+            
            
         }
     }
