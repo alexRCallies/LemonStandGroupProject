@@ -35,7 +35,7 @@ namespace LSGP
            
 
         }
-        public void BuyLemons()
+        public void BuyLemons()//Single responsibility principle, used solely for buying lemons and no other ingredient. - Alex
         {
             Console.WriteLine("How many would you like to buy");
             try
@@ -139,7 +139,7 @@ namespace LSGP
                 
             }
         }
-        public void BuyItems()
+        public void BuyItems()//Open/Closed principle, methods can be extended for further gameplay without any drastic repercussions.
         {
             Game game = new Game();
             PrintStoreStock();

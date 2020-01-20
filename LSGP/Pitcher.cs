@@ -18,7 +18,7 @@ namespace LSGP
         
         public Pitcher()
         {
-            this.cupsPerPitcher = 20;
+            this.cupsPerPitcher = 15;
             
         }
         public void PrintPitchers()
