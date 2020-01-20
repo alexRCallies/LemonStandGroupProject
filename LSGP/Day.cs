@@ -37,6 +37,7 @@ namespace LSGP
 
         public Day(Player player)
         {
+            weather = new Weather();
             this.player = player;
             this.aaron = new Customer("A-a-ron", 14, 15, 15, 12, 15, 5);
             this.alex = new Customer("Alex", 21, 16, 14, 15, 12, 4);
@@ -87,7 +88,7 @@ namespace LSGP
                 else
                 {
                     Console.WriteLine(customer.name + " did not got to the stand today");
-                    customers.Remove(customer);
+                    customers.RemoveAt(0);
                 }
                 
             }
@@ -118,6 +119,10 @@ namespace LSGP
                             {
                                 player.pitcher.pitchers.RemoveAt(0);
                                 player.pitcher.cupsPerPitcher = 15;
+                                if(player.pitcher.pitchers.Count == 0)
+                                {
+                                    break;
+                                }
                             }
                             BuyAgain();
                         }
@@ -159,7 +164,7 @@ namespace LSGP
         public void CheckActualWeather()
         {
            
-            weather.ActualDayWeather();
+           
 
             foreach (Customer customer in customers)
             {
@@ -184,6 +189,7 @@ namespace LSGP
 
         public void MasterCustomerBuyLemonade()
         {
+            CheckActualWeather();
             GoToLemonadeStand();
             while (customers.Count > 0 || player.inventory.cup.numInInventory > 0 || player.pitcher.pitchers.Count > 0)
             {

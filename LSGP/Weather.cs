@@ -54,7 +54,7 @@ namespace LSGP
         {
             weatherConditions = new List<string>() { "Cloudy", "Rainy", "Thunder Storms", "Sunny" };
 
-            int index = random.Next(weatherConditions.Count+1);
+            int index = random.Next(weatherConditions.Count-1);
             condition = weatherConditions[index];
 
         }
