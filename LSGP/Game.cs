@@ -103,11 +103,11 @@ namespace LSGP
         }
         public void WeatherForecast()
         {
-            weather.Masterforecast();
+            weather.MasterForecast();
         }
         public void ActualDailyWeather()
         {
-            weather.ActualWeather();
+            weather.ActualDayWeather();
         }
     }
 }

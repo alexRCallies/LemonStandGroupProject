@@ -26,18 +26,18 @@ namespace LSGP
 
         // Member Methods  OPEN CLOSED PRINCIPLE - ALL METHODS CAN BE EXPENDED IF NEEDED TO EXPAND GAME PLAY  - Nick
 
-        public void Masterforecast()
+        public void MasterForecast()
         {
-            WeatherSelection();
+            ForecastWeather();
             ForecastTemperature();
         }
-        public void ActualWeather()
+        public void ActualDayWeather()
         {
-            SetWeather();
-            SetTemperature();
+            ActualConditions();
+            ActualTemperature();
         }
         
-        public void WeatherSelection() // SINGLE RESPONSIBILITY EXAMPLE - random list selection for forecast weather condition - 
+        public void ForecastWeather() // SINGLE RESPONSIBILITY EXAMPLE - random list selection for forecast weather condition - 
         {
             weatherConditions = new List<string>() { "Sunny", "Cloudy", "Rainy", "ThunderStorms" };
             int index = random.Next(weatherConditions.Count);
@@ -49,13 +49,13 @@ namespace LSGP
             Console.WriteLine("The Forecast for today is " + predictedForecast + " & " + temperature + " degrees.");
         }
 
-        public void SetWeather()  // SINGLE RESPONSIBILITY EXAMPLE - random used to select the actual weather -
+        public void ActualConditions()  // SINGLE RESPONSIBILITY EXAMPLE - random used to select the actual weather -
         {
             weatherConditions = new List<string>() { "Cloudy", "Rainy", "ThunderStorms", "Sunny" };
             int index = random.Next(weatherConditions.Count);
             condition = weatherConditions[index];
         }
-        public void SetTemperature()  // SINGLE RESPONSIBILITY EXAMPLE - sets the actual temp based on the actual weather condition - Nick
+        public void ActualTemperature()  // SINGLE RESPONSIBILITY EXAMPLE - sets the actual temp based on the actual weather condition - Nick
         {
             
             if (condition == "Cloudy")
