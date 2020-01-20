@@ -10,11 +10,12 @@ namespace LSGP
     {
         Player player;
         Store store;
-
+        
         public Game()
         {
             this.player = new Player();
             this.store = new Store(player);
+            
         }
 
         public void RunGame() //Master Method
