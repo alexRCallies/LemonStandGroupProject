@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LSGP
 {
-    class Recipe
+   public class Recipe
     {
         Pitcher pitcher = new Pitcher();
         Inventory inventory;
@@ -20,7 +20,7 @@ namespace LSGP
         int lemonsInLemonade;
         int sugarInLemonade;
         int howManyPitchers;
-        
+        public double pricePerCup;
 
         
       
@@ -195,8 +195,14 @@ namespace LSGP
                 pitcher.pitchers.Add(pitcher);
             }
             pitcher.PrintPitchers();
-            
-           
+            try
+            {
+                pricePerCup = double.Parse(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Please enter a number");
+            }
         }
     }
 }

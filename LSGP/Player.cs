@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LSGP
 {
-    class Player
+   public class Player
     {
         public string name;
         public Wallet wallet;

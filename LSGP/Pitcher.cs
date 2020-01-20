@@ -9,7 +9,7 @@ namespace LSGP
    public class Pitcher
     {
         public int cupsPerPitcher;
-        public int numOfPitchers;
+       
         public int PitcherSize = 6;
         public int sourLevel;
         public int sweetLevel;

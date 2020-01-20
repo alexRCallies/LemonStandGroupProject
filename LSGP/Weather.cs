@@ -39,7 +39,7 @@ namespace LSGP
         
         public void ForecastWeather() // SINGLE RESPONSIBILITY EXAMPLE - random list selection for forecast weather condition - 
         {
-            weatherConditions = new List<string>() { "Sunny", "Cloudy", "Rainy", "ThunderStorms" };
+            weatherConditions = new List<string>() { "Sunny", "Cloudy", "Rainy", "Thunder Storms" };
             int index = random.Next(weatherConditions.Count);
             predictedForecast = weatherConditions[index];
             
@@ -52,7 +52,7 @@ namespace LSGP
 
         public void ActualConditions()  // SINGLE RESPONSIBILITY EXAMPLE - random used to select the actual weather -
         {
-            weatherConditions = new List<string>() { "Cloudy", "Rainy", "ThunderStorms", "Sunny" };
+            weatherConditions = new List<string>() { "Cloudy", "Rainy", "Thunder Storms", "Sunny" };
             int index = random.Next(weatherConditions.Count+1);
             condition = weatherConditions[index];
         }
