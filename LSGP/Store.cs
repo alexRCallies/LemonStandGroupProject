@@ -141,32 +141,31 @@ namespace LSGP
         }
         public void BuyItems()//Open/Closed principle, methods can be extended for further gameplay without any drastic repercussions.
         {
-            Game game = new Game();
             PrintStoreStock();
             player.inventory.ShowCurrentInventory();
             player.wallet.NewBalance();
             Console.WriteLine("");
             Console.WriteLine("What would you like to buy?\n");
             player.input = Console.ReadLine();
-            if((player.input == storeStock[0].name) || (player.input == "LEMONS") || (player.input == "lemons")
+            if ((player.input == storeStock[0].name) || (player.input == "LEMONS") || (player.input == "lemons")
                 || (player.input == "lemon") || (player.input == "LEMON") || (player.input == "lemons"))
             {
                 BuyLemons();
                 BuyItems();
             }
-            else if((player.input == storeStock[2].name) || (player.input == "Sugar") || (player.input == "SUGAR")
+            else if ((player.input == storeStock[2].name) || (player.input == "Sugar") || (player.input == "SUGAR")
                 || (player.input == "SUGAR CUBE") || (player.input == "SugarCube") || (player.input == "sugar cube") || (player.input == "sugar"))
-            { 
+            {
                 BuySugarCubes();
                 BuyItems();
             }
-            else if((player.input == storeStock[2].name) || (player.input == "Ice") || (player.input == "ICE")
+            else if ((player.input == storeStock[2].name) || (player.input == "Ice") || (player.input == "ICE")
                 || (player.input == "ICE CUBE") || (player.input == "IceCube") || (player.input == "ice cube"))
             {
                 BuyIceCubes();
                 BuyItems();
             }
-            else if((player.input == storeStock[3].name) || (player.input == "CUPS") || (player.input == "CUP")
+            else if ((player.input == storeStock[3].name) || (player.input == "CUPS") || (player.input == "CUP")
                 || (player.input == "cup") || (player.input == "CUps") || (player.input == "cups"))
             {
                 BuyCups();
@@ -175,7 +174,6 @@ namespace LSGP
             else if (player.input == "No")
             {
                 Console.WriteLine("Thanks for visiting, you have left the store\n");
-                game.PlayerChoice();
             }
             else
             {
