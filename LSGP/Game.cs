@@ -27,6 +27,7 @@ namespace LSGP
         {
             Instructions();
             FindPlayerName();
+
             BeginDay();
            
         }
@@ -56,8 +57,32 @@ namespace LSGP
                 || (confirmation == "Y") || (confirmation == "yup") || (confirmation == "Yup") || (confirmation == "YUP") ||
                 (confirmation == "YUp") || (confirmation == "yUp") || (confirmation == "yuP"))
             {
-                Console.WriteLine("Great! Lets get started!");
+                Console.WriteLine("Great! Lets get started!\n");
             }
+            else
+            {
+                Console.WriteLine("That is not a valid answer, Please tray again");
+                InstructionRedo();
+            }
+        }
+        public void InstructionRedo()
+        {
+            Console.WriteLine("\nReady to play?  Yes or No");
+            string confirmation = Console.ReadLine();
+            if ((confirmation == "no") || (confirmation == "No") || (confirmation == "NO") || (confirmation == "n")
+                || (confirmation == "N") || (confirmation == "nope") || (confirmation == "Nope") || (confirmation == "NOPE") ||
+                (confirmation == "NOpe") || (confirmation == "NOPe") || (confirmation == "nOpe"))
+            {
+                Console.WriteLine("Alright, lets go over the instructions again:");
+                RunGame();
+            }
+            else if ((confirmation == "yes") || (confirmation == "Yes") || (confirmation == "YES") || (confirmation == "y")
+                || (confirmation == "Y") || (confirmation == "yup") || (confirmation == "Yup") || (confirmation == "YUP") ||
+                (confirmation == "YUp") || (confirmation == "yUp") || (confirmation == "yuP"))
+            {
+                Console.WriteLine("Great! Lets get started!\n");
+            }
+           
         }
         public string FindPlayerName()
         {
@@ -67,7 +92,7 @@ namespace LSGP
         }
         public void PlayerChoice()
         {
-            Console.WriteLine("What do you want to do Store/Inventory/Recipe/Play");
+            Console.WriteLine("\nWhat do you want to do Store/Inventory/Recipe/Play?");
             player.input = Console.ReadLine();
             if ((player.input == "Store") || (player.input == "store") || (player.input == "sTore") || (player.input == "STORE")
                 || (player.input == "stOre") || (player.input == "StoRe") || (player.input == "storE") || (player.input == "S"))
@@ -84,7 +109,7 @@ namespace LSGP
                 PlayerChoice();
             }
 
-            else if ((player.input == "Recipe") || (player.input == "R") || (player.input == "RECIPE") || (player.input == "Recipe")
+            else if ((player.input == "Recipe") || (player.input == "R") || (player.input == "RECIPE") || (player.input == "recipe")
                 || (player.input == "Recip") || (player.input == "REcipe") || (player.input == "reCipe") || (player.input == "Rec"))
             {
                 

@@ -31,6 +31,8 @@ namespace LSGP
         
        public List<Customer> customers = new List<Customer>();
 
+        public int weatherAdjust;
+
         // Constructor
 
         public Day(Player player)
@@ -163,7 +165,6 @@ namespace LSGP
             {
                 if (weather.condition == "Sunny")
                 {
-
                     customer.chanceToGoToStand += 2;
                     customer.chanceToBuyColdLevel -= 3;
 
@@ -180,6 +181,7 @@ namespace LSGP
                 }
             }
         }
+
         public void MasterCustomerBuyLemonade()
         {
             GoToLemonadeStand();
@@ -190,5 +192,6 @@ namespace LSGP
             dayCounter--;
             player.pitcher.pitchers.Clear();
         }
+
     }
 }

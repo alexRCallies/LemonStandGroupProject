@@ -49,20 +49,23 @@ namespace LSGP
                     if (addLemons <= maxAmountOFSugarOrLemons)
                     {  
                             pitcher.PitcherSize -= addLemons;
-                            lemonsInLemonade = addLemons;
-                       
-                        
+                            lemonsInLemonade = addLemons;  
+                    }
+                    else
+                    {
+                        Console.WriteLine("\nThat is too many lemons for the pitcher.");
+                        AddLemonsToLemonade();
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Must have at least 1");
+                    Console.WriteLine("\nYou must have at least 1.");
                     AddLemonsToLemonade();
                 }
             }
             else
             {
-                Console.WriteLine("Insufficient Lemons");
+                Console.WriteLine("\nYou don't have enough Lemons");
                 
                 
             }
@@ -92,31 +95,21 @@ namespace LSGP
                         }
                         else
                         {
-                            Console.WriteLine("You need " + pitcher.PitcherSize + " more sugars.");
+                            Console.WriteLine("You need add " + pitcher.PitcherSize + " more sugars.");
                             AddSugarToLemonade();
                         }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Exceeding pitcher limit");
-                        AddSugarToLemonade();
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Must have at least 1");
+                    Console.WriteLine("\nMust have at least " + pitcher.PitcherSize);
                     AddSugarToLemonade();
                 }
-            }
-            else
-            {
-                Console.WriteLine("Insufficient Sugar");
-                
             }
         }
         public void AddIceToLemonade()
         {
-            Console.WriteLine("How much ice in the lemonade");
+            Console.WriteLine("How much ice would you like to add to the pitcher?");
             
             try
             {
@@ -126,17 +119,9 @@ namespace LSGP
             {
                 Console.WriteLine("Enter a number");
             }
-            //if(inventory.iceCubes[0].numInInventory >= addIce)
-            //{
                 
                 iceInLemonade = addIce;
-               
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Insufficient Ice");
-                
-            //}
+
         }
         public void MakeMultiplePitchers()
         {
@@ -162,19 +147,19 @@ namespace LSGP
                     }
                     else
                     {
-                        Console.WriteLine("Insufficient Ice");
+                        Console.WriteLine("\nInsufficient Ice: Lets start the recipe over.");
                         MakeAPitcherOFLemonade();
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Insufficient Sugar");
+                    Console.WriteLine("\nInsufficient Sugar: Lets start the recipe over.");
                     MakeAPitcherOFLemonade();
                 }
             }
             else
             {
-                Console.WriteLine("Insufficient Lemons");
+                Console.WriteLine("\nInsufficient Lemons: Lets start the recipe over.");
                 MakeAPitcherOFLemonade();
             }
         }
