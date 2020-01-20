@@ -17,7 +17,7 @@ namespace LSGP
         public int chanceToBuy;
         public int chanceToBuyAgain;
 
-        public virtual void GoToLemonadeStand()
+        public void GoToLemonadeStand()
         {
             Random goToRandom = new Random();
             int arrival = goToRandom.Next(1, 11);
