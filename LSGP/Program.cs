@@ -11,9 +11,8 @@ namespace LSGP
         static void Main(string[] args)
         {
             Game game = new Game();
-            game.PlayerChoice();
-            Console.ReadLine();
-            
+            game.RunGame();
+                        
         }
     }
 }
