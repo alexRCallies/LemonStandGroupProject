@@ -28,7 +28,7 @@ namespace LSGP
             Instructions();
             FindPlayerName();
             PlayerChoice();
-            WeatherForecast();
+            
             
         }
 
@@ -108,7 +108,7 @@ namespace LSGP
                 PlayerChoice();
             }
 
-            else if ((player.input == "Recipe") || (player.input == "R") || (player.input == "RECIPE") || (player.input == "Recipe")
+            else if ((player.input == "Recipe") || (player.input == "R") || (player.input == "RECIPE") || (player.input == "recipe")
                 || (player.input == "Recip") || (player.input == "REcipe") || (player.input == "reCipe") || (player.input == "Rec"))
             {
                 player.recipe.MakeAPitcherOFLemonade();

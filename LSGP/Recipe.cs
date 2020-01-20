@@ -147,19 +147,19 @@ namespace LSGP
                     }
                     else
                     {
-                        Console.WriteLine("\nInsufficient Ice");
+                        Console.WriteLine("\nInsufficient Ice: Lets start the recipe over.");
                         MakeAPitcherOFLemonade();
                     }
                 }
                 else
                 {
-                    Console.WriteLine("\nInsufficient Sugar");
+                    Console.WriteLine("\nInsufficient Sugar: Lets start the recipe over.");
                     MakeAPitcherOFLemonade();
                 }
             }
             else
             {
-                Console.WriteLine("\nInsufficient Lemons");
+                Console.WriteLine("\nInsufficient Lemons: Lets start the recipe over.");
                 MakeAPitcherOFLemonade();
             }
         }
