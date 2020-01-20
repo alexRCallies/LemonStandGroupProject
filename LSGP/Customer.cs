@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LSGP
 {
-   public abstract class Customer
+   public class Customer
     {
         public string name;
         public int age;
@@ -16,11 +16,24 @@ namespace LSGP
         public int chanceToBuySweetLevel;
         public int chanceToBuy;
         public int chanceToBuyAgain;
+       
+        public Customer(string name, int age, int chanceToGoToStand, int chanceToBuyPrice, int chacneToBuySweet, int chanceToBuy, int chanceToBuyAgain)
+        {
+            this.name = name;
+            this.age = age;
+            this.chanceToGoToStand = chanceToGoToStand;
+            this.chanceToBuyprice = chanceToBuyPrice;
+            this.chanceToBuySweetLevel = chacneToBuySweet;
+            this.chanceToBuy = chanceToBuy;
+            this.chanceToBuyAgain = chanceToBuyAgain;
+
+        }
+
 
         public void GoToLemonadeStand()
         {
             Random goToRandom = new Random();
-            int arrival = goToRandom.Next(1, 11);
+            int arrival = goToRandom.Next(1, 21);
             if(arrival <= chanceToGoToStand)
             {
                 Console.WriteLine(name+" arrived at the Lemonade Stand");
@@ -31,15 +44,15 @@ namespace LSGP
             }
         }
         
-        public virtual void BuyLemonade()
+        public void BuyLemonade()
         {
             
             Random randomBasedOnPrice = new Random();
-            int priceBuy = randomBasedOnPrice.Next(1, 11);
+            int priceBuy = randomBasedOnPrice.Next(1, 21);
             Random randomBasedOnSweetness = new Random();
-            int sweetBuy = randomBasedOnSweetness.Next(1, 11);
+            int sweetBuy = randomBasedOnSweetness.Next(1, 21);
             Random randomBasedOnColdness = new Random();
-            int coldBuy = randomBasedOnColdness.Next(1, 11);
+            int coldBuy = randomBasedOnColdness.Next(1, 21);
             if(priceBuy <= chanceToBuyprice)
             {
                 Console.WriteLine(name+" thinks the price is fair");
@@ -66,7 +79,7 @@ namespace LSGP
                 Console.WriteLine(name+ " thinks the price is unfair");
             }
         }
-        public virtual void BuyAgain()
+        public void BuyAgain()
         {
             Random buyAgain = new Random();
             int again = buyAgain.Next(1, 11);
@@ -79,7 +92,7 @@ namespace LSGP
                 Console.WriteLine(name+ " is satisfied");
             }
         }
-        public virtual void MasterCustomerBuyLemonade()
+        public void MasterCustomerBuyLemonade()
         {
             GoToLemonadeStand();
             BuyLemonade();
