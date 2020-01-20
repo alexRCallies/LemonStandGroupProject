@@ -39,19 +39,19 @@ namespace LSGP
         
         public void ForecastWeather() // SINGLE RESPONSIBILITY EXAMPLE - random list selection for forecast weather condition - 
         {
-            weatherConditions = new List<string>() { "Sunny", "Cloudy", "Rainy", "ThunderStorms" };
+            weatherConditions = new List<string>() { "Sunny", "Cloudy", "Rainy", "Thunder Storms" };
             int index = random.Next(weatherConditions.Count);
             predictedForecast = weatherConditions[index];
         }
         public void ForecastTemperature()  // SINGLE RESPONSIBILITY EXAMPLE - random used to select the forcast temp - 
         {
             temperature = random.Next(45, 95);
-            Console.WriteLine("The Forecast for today is " + predictedForecast + " & " + temperature + " degrees.");
+            Console.WriteLine("\nThe Forecast for today is " + predictedForecast + " & " + temperature + " degrees.");
         }
 
         public void ActualConditions()  // SINGLE RESPONSIBILITY EXAMPLE - random used to select the actual weather -
         {
-            weatherConditions = new List<string>() { "Cloudy", "Rainy", "ThunderStorms", "Sunny" };
+            weatherConditions = new List<string>() { "Cloudy", "Rainy", "Thunder Storms", "Sunny" };
             int index = random.Next(weatherConditions.Count);
             condition = weatherConditions[index];
         }
@@ -85,6 +85,7 @@ namespace LSGP
 
         }
         
+        public void 
     }
 }
 

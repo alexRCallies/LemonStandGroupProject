@@ -29,7 +29,7 @@ namespace LSGP
             FindPlayerName();
             PlayerChoice();
             WeatherForecast();
-            ActualDailyWeather();
+            
         }
 
         public void Instructions()
@@ -57,7 +57,7 @@ namespace LSGP
                 || (confirmation == "Y") || (confirmation == "yup") || (confirmation == "Yup") || (confirmation == "YUP") ||
                 (confirmation == "YUp") || (confirmation == "yUp") || (confirmation == "yuP"))
             {
-                Console.WriteLine("Great! Lets get started!");
+                Console.WriteLine("Great! Lets get started!\n");
             }
         }
         public string FindPlayerName()
@@ -68,7 +68,7 @@ namespace LSGP
         }
         public void PlayerChoice()
         {
-            Console.WriteLine("What do you want to do Store/Inventory/Recipe/Play");
+            Console.WriteLine("\nWhat do you want to do Store/Inventory/Recipe/Play?");
             player.input = Console.ReadLine();
             if ((player.input == "Store") || (player.input == "store") || (player.input == "sTore") || (player.input == "STORE")
                 || (player.input == "stOre") || (player.input == "StoRe") || (player.input == "storE") || (player.input == "S"))

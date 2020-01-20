@@ -30,6 +30,8 @@ namespace LSGP
         Yolanda yolanda;
         List<Customer> customers = new List<Customer>();
 
+        public int weatherAdjust;
+
         // Constructor
 
         public Day()
@@ -69,6 +71,5 @@ namespace LSGP
 
         // member methods
 
-       
     }
 }

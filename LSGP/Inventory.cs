@@ -33,22 +33,22 @@ namespace LSGP
         // member methods
         public void ShowCurrentInventory()
         {
-            Console.WriteLine("You Have: ");
+            Console.WriteLine("\nYou Have: ");
             foreach(Lemon lemon in lemons)
             {
-                Console.WriteLine(lemon.name+" "+lemon.numInInventory);
+                Console.WriteLine(lemon.name+": "+lemon.numInInventory);
             }
             foreach(Sugar_Cube sugarCube in sugarCubes)
             {
-                Console.WriteLine(sugarCube.name+" "+sugarCube.numInInventory);
+                Console.WriteLine(sugarCube.name+": "+sugarCube.numInInventory);
             }
             foreach(Ice_Cube iceCube in iceCubes)
             {
-                Console.WriteLine(iceCube.name+" "+iceCube.numInInventory);
+                Console.WriteLine(iceCube.name+": "+iceCube.numInInventory);
             }
             foreach(Cup cup in cups)
             {
-                Console.WriteLine(cup.name+" "+cup.numInInventory);
+                Console.WriteLine(cup.name+": "+cup.numInInventory);
             } 
                 
         }

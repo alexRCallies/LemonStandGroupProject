@@ -56,13 +56,13 @@ namespace LSGP
                 }
                 else
                 {
-                    Console.WriteLine("Must have at least 1");
+                    Console.WriteLine("\nMust have at least 1");
                     AddLemonsToLemonade();
                 }
             }
             else
             {
-                Console.WriteLine("Insufficient Lemons");
+                Console.WriteLine("\nInsufficient Lemons");
                 
                 
             }
@@ -98,19 +98,19 @@ namespace LSGP
                     }
                     else
                     {
-                        Console.WriteLine("Exceeding pitcher limit");
+                        Console.WriteLine("\nExceeding pitcher limit");
                         AddSugarToLemonade();
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Must have at least 1");
+                    Console.WriteLine("\nMust have at least 1");
                     AddSugarToLemonade();
                 }
             }
             else
             {
-                Console.WriteLine("Insufficient Sugar");
+                Console.WriteLine("\nInsufficient Sugar");
                 
             }
         }
@@ -162,19 +162,19 @@ namespace LSGP
                     }
                     else
                     {
-                        Console.WriteLine("Insufficient Ice");
+                        Console.WriteLine("\nInsufficient Ice");
                         MakeAPitcherOFLemonade();
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Insufficient Sugar");
+                    Console.WriteLine("\nInsufficient Sugar");
                     MakeAPitcherOFLemonade();
                 }
             }
             else
             {
-                Console.WriteLine("Insufficient Lemons");
+                Console.WriteLine("\nInsufficient Lemons");
                 MakeAPitcherOFLemonade();
             }
         }

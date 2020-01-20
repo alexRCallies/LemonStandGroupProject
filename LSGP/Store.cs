@@ -30,14 +30,14 @@ namespace LSGP
         {
             foreach (Items item in storeStock)
             {
-                Console.WriteLine($"Name: {item.name + " Price: " + item.price}");
+                Console.WriteLine($"Name: {item.name + " Price: $" + item.price}");
             }
            
 
         }
         public void BuyLemons()//Single responsibility principle, used solely for buying lemons and no other ingredient. - Alex
         {
-            Console.WriteLine("How many would you like to buy");
+            Console.WriteLine("How many would you like to buy?");
             try
             {
                 howManyToBuy = int.Parse(Console.ReadLine());
@@ -47,23 +47,24 @@ namespace LSGP
                 Console.WriteLine("Enter A Number");
             }
             finalSale = lemon.price * howManyToBuy;
-            Console.WriteLine("The cost will be: "+ finalSale);
+            Console.WriteLine("The cost will be: $"+ finalSale);
             if(player.wallet.Money >= finalSale)
             {
                 player.wallet.Money -= finalSale;
-               player.inventory.lemons[0].numInInventory += howManyToBuy;
-                player.inventory.ShowCurrentInventory();
+                player.inventory.lemons[0].numInInventory += howManyToBuy;
+                //player.inventory.ShowCurrentInventory();
                 player.wallet.NewBalance();
+                Console.WriteLine("");
             }
             else
             {
-                Console.WriteLine("Not enough funds :(");
+                Console.WriteLine("\nNot enough funds :(\n");
                 
             }
         }
         public void BuySugarCubes()
         {
-            Console.WriteLine("How many would you like to buy");
+            Console.WriteLine("How many would you like to buy?");
             try
             {
                 howManyToBuy = int.Parse(Console.ReadLine());
@@ -73,23 +74,24 @@ namespace LSGP
                 Console.WriteLine("Enter A Number");
             }
             finalSale = sugarCube.price * howManyToBuy;
-            Console.WriteLine("The cost will be: " + finalSale);
+            Console.WriteLine("The cost will be: $" + finalSale);
             if (player.wallet.Money >= finalSale)
             {
                 player.wallet.Money -= finalSale;
                 player.inventory.sugarCube.numInInventory += howManyToBuy;
-                player.inventory.ShowCurrentInventory();
+                //player.inventory.ShowCurrentInventory();
                 player.wallet.NewBalance();
+                Console.WriteLine("");
             }
             else
             {
-                Console.WriteLine("Not enough funds :(");
+                Console.WriteLine("\nNot enough funds :(\n");
                 
             }
         }
         public void BuyIceCubes()
         {
-            Console.WriteLine("How many would you like to buy");
+            Console.WriteLine("How many would you like to buy?");
             try
             {
                 howManyToBuy = int.Parse(Console.ReadLine());
@@ -99,23 +101,24 @@ namespace LSGP
                 Console.WriteLine("Enter A Number");
             }
             finalSale = iceCube.price * howManyToBuy;
-            Console.WriteLine("The cost will be: " + finalSale);
+            Console.WriteLine("The cost will be: $" + finalSale);
             if (player.wallet.Money >= finalSale)
             {
                 player.wallet.Money -= finalSale;
                 player.inventory.iceCube.numInInventory += howManyToBuy;
-                player.inventory.ShowCurrentInventory();
+                //player.inventory.ShowCurrentInventory();
                 player.wallet.NewBalance();
+                Console.WriteLine("");
             }
             else
             {
-                Console.WriteLine("Not enough funds :(");
+                Console.WriteLine("\nNot enough funds :(\n");
                 
             }
         }
         public void BuyCups()
         {
-            Console.WriteLine("How many would you like to buy");
+            Console.WriteLine("How many would you like to buy?");
             try
             {
                 howManyToBuy = int.Parse(Console.ReadLine());
@@ -125,17 +128,18 @@ namespace LSGP
                 Console.WriteLine("Enter A Number");
             }
             finalSale = cups.price * howManyToBuy;
-            Console.WriteLine("The cost will be: " + finalSale);
+            Console.WriteLine("The cost will be: $" + finalSale);
             if (player.wallet.Money >= finalSale)
             {
                 player.wallet.Money -= finalSale;
                 player.inventory.cup.numInInventory += (howManyToBuy * cups.numOfCupsInAPack);
-                player.inventory.ShowCurrentInventory();
+                //player.inventory.ShowCurrentInventory();
                 player.wallet.NewBalance();
+                Console.WriteLine("");
             }
             else
             {
-                Console.WriteLine("Not enough funds :(");
+                Console.WriteLine("\nNot enough funds :(\n");
                 
             }
         }
@@ -148,7 +152,7 @@ namespace LSGP
             Console.WriteLine("What would you like to buy?\n");
             player.input = Console.ReadLine();
             if ((player.input == storeStock[0].name) || (player.input == "LEMONS") || (player.input == "lemons")
-                || (player.input == "lemon") || (player.input == "LEMON") || (player.input == "lemons"))
+                || (player.input == "lemon") || (player.input == "LEMON") || (player.input == "Lemons"))
             {
                 BuyLemons();
                 BuyItems();
@@ -160,7 +164,7 @@ namespace LSGP
                 BuyItems();
             }
             else if ((player.input == storeStock[2].name) || (player.input == "Ice") || (player.input == "ICE")
-                || (player.input == "ICE CUBE") || (player.input == "IceCube") || (player.input == "ice cube"))
+                || (player.input == "ICE CUBE") || (player.input == "IceCube") || (player.input == "ice"))
             {
                 BuyIceCubes();
                 BuyItems();
@@ -171,13 +175,14 @@ namespace LSGP
                 BuyCups();
                 BuyItems();
             }
-            else if (player.input == "No")
+            else if ((player.input == "No") || (player.input == "Nothing") || (player.input == "nada") || (player.input == "Nada")
+                || (player.input == "nothing"))
             {
-                Console.WriteLine("Thanks for visiting, you have left the store\n");
+                Console.WriteLine("Thanks for visiting, you have left the store.\n");
             }
             else
             {
-                Console.WriteLine("That is a not a valid entry, please try again\n");
+                Console.WriteLine("That is a not a valid entry, please try again.\n");
                 BuyItems();
             }
           
