@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LSGP
 {
-   class Inventory
+   public class Inventory
     {
         // member variables 
         public Lemon lemon = new Lemon();

@@ -11,9 +11,9 @@ namespace LSGP
         Player player;
         Store store;
 
-        
 
-        Weather weather = new Weather();
+
+        Day day;
 
 
         public Game()
@@ -27,9 +27,9 @@ namespace LSGP
         {
             Instructions();
             FindPlayerName();
-            PlayerChoice();
-            
-            
+
+            BeginDay();
+           
         }
 
         public void Instructions()
@@ -98,6 +98,7 @@ namespace LSGP
                 || (player.input == "stOre") || (player.input == "StoRe") || (player.input == "storE") || (player.input == "S"))
             {
                 store = new Store(player);
+                day.weather.MasterForecast();
                 store.BuyItems();
                 PlayerChoice();
             }
@@ -111,13 +112,14 @@ namespace LSGP
             else if ((player.input == "Recipe") || (player.input == "R") || (player.input == "RECIPE") || (player.input == "recipe")
                 || (player.input == "Recip") || (player.input == "REcipe") || (player.input == "reCipe") || (player.input == "Rec"))
             {
+                
                 player.recipe.MakeAPitcherOFLemonade();
                 PlayerChoice();
             }
             else if ((player.input == "Play") || (player.input == "P") || (player.input == "PLAY") || (player.input == "P")
                 || (player.input == "PLay") || (player.input == "play"))
             {
-                // Play Game Method place holder
+                BeginDay();
             }
             else
             {
@@ -125,13 +127,27 @@ namespace LSGP
                 PlayerChoice();
             }
         }
-        public void WeatherForecast()
+        public void BeginDay()
         {
-            weather.MasterForecast();
+            day = new Day(player);
+            store = new Store(player);
+            day.weather.MasterForecast();
+            store.BuyItems();
+            player.inventory.ShowCurrentInventory();
+            player.recipe.MakeAPitcherOFLemonade();
+            day.CheckActualWeather();
+            day.MasterCustomerBuyLemonade();
+            
+            if(day.dayCounter > 0)
+            {
+                BeginDay();
+            }
+            else
+            {
+                player.wallet.NewBalance();
+            }
+
         }
-        public void ActualDailyWeather()
-        {
-            weather.ActualDayWeather();
-        }
+       
     }
 }

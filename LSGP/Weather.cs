@@ -53,7 +53,10 @@ namespace LSGP
         public void ActualConditions()  // SINGLE RESPONSIBILITY EXAMPLE - random used to select the actual weather -
         {
             weatherConditions = new List<string>() { "Cloudy", "Rainy", "Thunder Storms", "Sunny" };
-            int index = random.Next(weatherConditions.Count);
+
+            int index = random.Next(weatherConditions.Count+1);
+            condition = weatherConditions[index];
+
         }
         public void ActualTemperature()  // SINGLE RESPONSIBILITY EXAMPLE - sets the actual temp based on the actual weather condition - Nick
         {
