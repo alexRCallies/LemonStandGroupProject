@@ -10,7 +10,12 @@ namespace LSGP
     {
         Player player;
         Store store;
+
         
+
+        Weather weather = new Weather();
+
+
         public Game()
         {
             this.player = new Player();
@@ -23,13 +28,16 @@ namespace LSGP
             Instructions();
             FindPlayerName();
             PlayerChoice();
+            WeatherForecast();
+            ActualDailyWeather();
         }
 
         public void Instructions()
         {
-            Console.WriteLine("Instructions");
-            Console.WriteLine("\n Your goal is to make as much money as you can in \n 7, 14, or 30 days by " +
-                "selling lemonade at your lemonade \n  stand.");
+            Console.WriteLine("          Welcome to Lemonade Stand!          ");
+            Console.WriteLine("                  Instructions          ");
+            Console.WriteLine("\n Your goal is to make as much money as you can in \n 7 days by " +
+                "selling lemonade at your lemonade stand.");
             Console.WriteLine("\n\n Buy cups, lemons, sugar, and ice cubes, then set\n your recipe based on " +
                 "the weather and conditions. Start\n with the basic recipe, but try to vary the recipe \n" +
                 " and see if you can do better. Lastly, set your price \n and sell your lemonade at the stand." +
@@ -45,7 +53,9 @@ namespace LSGP
                 Console.WriteLine("Alright, lets go over the instructions again:");
                 RunGame();
             }
-            else
+            else if ((confirmation == "yes") || (confirmation == "Yes") || (confirmation == "YES") || (confirmation == "y")
+                || (confirmation == "Y") || (confirmation == "yup") || (confirmation == "Yup") || (confirmation == "YUP") ||
+                (confirmation == "YUp") || (confirmation == "yUp") || (confirmation == "yuP"))
             {
                 Console.WriteLine("Great! Lets get started!");
             }
@@ -58,25 +68,46 @@ namespace LSGP
         }
         public void PlayerChoice()
         {
-            Console.WriteLine("What do you want to do Store/Inventory/Recipe");
+            Console.WriteLine("What do you want to do Store/Inventory/Recipe/Play");
             player.input = Console.ReadLine();
-            if (player.input == "Store")
+            if ((player.input == "Store") || (player.input == "store") || (player.input == "sTore") || (player.input == "STORE")
+                || (player.input == "stOre") || (player.input == "StoRe") || (player.input == "storE") || (player.input == "S"))
             {
                 store = new Store(player);
                 store.BuyItems();
                 PlayerChoice();
             }
-            else if (player.input == "Inventory")
+            else if ((player.input == "Inventory") || (player.input == "I") || (player.input == "Inven") || (player.input == "INVENTORY")
+                || (player.input == "inventory") || (player.input == "Inventry") || (player.input == "Invent") || (player.input == "In"))
             {
                 player.inventory.ShowCurrentInventory();
                 PlayerChoice();
             }
-            else if (player.input == "Recipe")
+
+            else if ((player.input == "Recipe") || (player.input == "R") || (player.input == "RECIPE") || (player.input == "Recipe")
+                || (player.input == "Recip") || (player.input == "REcipe") || (player.input == "reCipe") || (player.input == "Rec"))
             {
-                
                 player.recipe.MakeAPitcherOFLemonade();
                 PlayerChoice();
             }
+            else if ((player.input == "Play") || (player.input == "P") || (player.input == "PLAY") || (player.input == "P")
+                || (player.input == "PLay") || (player.input == "play"))
+            {
+                // Play Game Method place holder
+            }
+            else
+            {
+                Console.WriteLine("That is not a valid entry, try again.");
+                PlayerChoice();
+            }
+        }
+        public void WeatherForecast()
+        {
+            weather.Masterforecast();
+        }
+        public void ActualDailyWeather()
+        {
+            weather.ActualWeather();
         }
     }
 }
