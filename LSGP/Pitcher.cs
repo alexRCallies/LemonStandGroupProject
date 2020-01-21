@@ -9,7 +9,7 @@ namespace LSGP
    public class Pitcher
     {
         public int cupsPerPitcher;
-       
+        public int numOfPitchers;
         public int PitcherSize = 6;
         public int sourLevel;
         public int sweetLevel;
@@ -20,12 +20,13 @@ namespace LSGP
         {
             this.cupsPerPitcher = 15;
             
+            
         }
         public void PrintPitchers()
         {
             foreach(Pitcher pitcher in pitchers)
             {
-                Console.WriteLine($"Pitcher  Sour Level: " +sourLevel+ " Sweet Level: " +sweetLevel+ " Cold Level: " + coldLevel);
+                Console.WriteLine($"Pitcher  Sour Level: " +sourLevel+ " Sweet Level: " +sweetLevel+ " Cold Level: " + coldLevel + " Number of Pitchers:" + numOfPitchers);
             }
             
         }

@@ -10,8 +10,8 @@ namespace LSGP
     {
         Player player;
         Store store;
-        
 
+        Weather weather;
 
         Day day;
 
@@ -130,10 +130,11 @@ namespace LSGP
         {
             day = new Day(player);
             store = new Store(player);
+            weather = new Weather();
             store.BuyItems();
             player.inventory.ShowCurrentInventory();
             player.recipe.MakeAPitcherOFLemonade();
-            day.CheckActualWeather();
+            weather.ActualDayWeather();
             day.MasterCustomerBuyLemonade();
             
             if(day.dayCounter > 0)
