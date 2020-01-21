@@ -48,6 +48,7 @@ namespace LSGP
             if(player.wallet.Money >= finalSale)
             {
                 player.wallet.Money -= finalSale;
+                player.wallet.dailyProfitOrLoss -= finalSale;
                 player.inventory.lemons[0].numInInventory += howManyToBuy;
                 player.wallet.NewBalance();
                 Console.WriteLine("");
@@ -73,6 +74,7 @@ namespace LSGP
             if (player.wallet.Money >= finalSale)
             {
                 player.wallet.Money -= finalSale;
+                player.wallet.dailyProfitOrLoss -= finalSale;
                 player.inventory.sugarCube.numInInventory += howManyToBuy;
                 player.wallet.NewBalance();
                 Console.WriteLine("");
@@ -99,6 +101,7 @@ namespace LSGP
             if (player.wallet.Money >= finalSale)
             {
                 player.wallet.Money -= finalSale;
+                player.wallet.dailyProfitOrLoss -= finalSale;
                 player.inventory.iceCube.numInInventory += howManyToBuy;
                 
                 player.wallet.NewBalance();
@@ -126,6 +129,7 @@ namespace LSGP
             if (player.wallet.Money >= finalSale)
             {
                 player.wallet.Money -= finalSale;
+                player.wallet.dailyProfitOrLoss -= finalSale;
                 player.inventory.cup.numInInventory += (howManyToBuy * cups.numOfCupsInAPack);
                 player.wallet.NewBalance();
                 Console.WriteLine("");
