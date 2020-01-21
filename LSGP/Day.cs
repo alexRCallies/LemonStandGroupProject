@@ -117,7 +117,7 @@ namespace LSGP
                         Console.WriteLine("thinks the recipe is good");
                         if (coldBuy <= remainingCustomers[i].chanceToBuyColdLevel)
                         {
-                            Console.WriteLine(" thinks the tempature of the lemonade is good");
+                            Console.WriteLine(" thinks the temperature of the lemonade is good");
                             player.wallet.Money += player.recipe.pricePerCup;
                             dailyProfit += player.recipe.pricePerCup;
                             player.wallet.NewBalance();
@@ -138,7 +138,7 @@ namespace LSGP
                         }
                         else
                         {
-                            Console.WriteLine("but "+remainingCustomers[i].name + " thinks the tempature of the lemonade is bad");
+                            Console.WriteLine("but "+remainingCustomers[i].name + " thinks the temperature of the lemonade is bad");
                         }
                     }
                     else
