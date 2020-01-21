@@ -11,6 +11,7 @@ namespace LSGP
         // member variables
         public Weather weather = new Weather();
         public int dayCounter = 7;
+        public double dailyProfit;
         public Player player;
         Customer aaron;
         Customer alex;
@@ -94,11 +95,6 @@ namespace LSGP
 
                 
            }
-           
-            foreach(Customer customer in remainingCustomers)
-            {
-                Console.WriteLine(customer.name);
-            }
         }
         public void BuyLemonade()
         {
@@ -118,11 +114,12 @@ namespace LSGP
                     Console.WriteLine(remainingCustomers[i].name + " thinks the price is fair");
                     if (sweetBuy <= remainingCustomers[i].chanceToBuySweetLevel)
                     {
-                        Console.WriteLine(remainingCustomers[i].name + " thinks the recipe is good");
+                        Console.WriteLine("thinks the recipe is good");
                         if (coldBuy <= remainingCustomers[i].chanceToBuyColdLevel)
                         {
-                            Console.WriteLine(remainingCustomers[i].name + " thinks the tempature of the lemonade is good");
+                            Console.WriteLine(" thinks the tempature of the lemonade is good");
                             player.wallet.Money += player.recipe.pricePerCup;
+                            dailyProfit += player.recipe.pricePerCup;
                             player.wallet.NewBalance();
                             player.inventory.pitchers[0].cupsPerPitcher--;
                             player.inventory.cups[0].numInInventory--;
@@ -144,18 +141,18 @@ namespace LSGP
                         }
                         else
                         {
-                            Console.WriteLine(remainingCustomers[i].name + " thinks the tempature of the lemonade is bad");
+                            Console.WriteLine("but "+remainingCustomers[i].name + " thinks the tempature of the lemonade is bad");
                         }
                     }
                     else
                     {
 
-                        Console.WriteLine(remainingCustomers[i].name + " thinks the recipe is bad");
+                        Console.WriteLine("but " + remainingCustomers[i].name + " thinks the recipe is bad");
                     }
                 }
                 else
                 {
-                    Console.WriteLine(remainingCustomers[i].name + " thinks the price is unfair");
+                    Console.WriteLine("but " + remainingCustomers[i].name + " thinks the price is unfair");
                 }
             }
             
@@ -313,8 +310,9 @@ namespace LSGP
             {
                 Console.WriteLine("You have no more lemonade");
             }
-                
-            
+
+            Console.WriteLine("You made: $" +dailyProfit);
+            Console.WriteLine("The Day is Over");
             dayCounter--;
             player.inventory.pitchers[0].numOfPitchers = 0;
         }
