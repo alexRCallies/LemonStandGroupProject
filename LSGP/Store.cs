@@ -165,13 +165,13 @@ namespace LSGP
                 BuyItems();
             }
             else if ((player.input == storeStock[2].name) || (player.input == "Ice") || (player.input == "ICE")
-                || (player.input == "ICE CUBE") || (player.input == "IceCube") || (player.input == "ice"))
+                || (player.input == "ICE CUBE") || (player.input == "IceCube") || (player.input == "ice") || (player.input == "Ice Cube") || (player.input == "ice cube"))
             {
                 BuyIceCubes();
                 BuyItems();
             }
             else if ((player.input == storeStock[3].name) || (player.input == "CUPS") || (player.input == "CUP")
-                || (player.input == "cup") || (player.input == "CUps") || (player.input == "cups"))
+                || (player.input == "cup") || (player.input == "CUps") || (player.input == "cups") || (player.input == "Cups") || (player.input == "Cup"))
             {
                 BuyCups();
                 BuyItems();

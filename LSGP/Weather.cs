@@ -64,25 +64,25 @@ namespace LSGP
             if (condition == "Cloudy")
             {
                 actualTemperature = temperature -= 5;
-                Console.WriteLine("Todays actual weather conditions are " + condition + " & " + actualTemperature + " degrees.");
+                Console.WriteLine("Todays actual weather conditions are " + condition + " & " + actualTemperature + " degrees.\n");
 
             }
             else if (condition == "Sunny")
             {
                 actualTemperature = temperature += 10;
-                Console.WriteLine("Todays actual weather conditions are " + condition + " & " + actualTemperature + " degrees.");
+                Console.WriteLine("Todays actual weather conditions are " + condition + " & " + actualTemperature + " degrees.\n");
 
             }
             else if (condition == "Rainy")
             {
                 actualTemperature = temperature -= 15;
-                Console.WriteLine("Todays actual weather conditions are " + condition + " & " + actualTemperature + " degrees.");
+                Console.WriteLine("Todays actual weather conditions are " + condition + " & " + actualTemperature + " degrees.\n");
                 
             }
             else
             {
                 actualTemperature = temperature -= 13;
-                Console.WriteLine("Todays actual weather conditions are " + condition + " & " + actualTemperature + " degrees.");
+                Console.WriteLine("Todays actual weather conditions are " + condition + " & " + actualTemperature + " degrees.\n");
                
             }
 
