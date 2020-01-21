@@ -19,7 +19,7 @@ namespace LSGP
         {
             this.player = new Player();
             this.store = new Store(player);
-            dayCounter = 7;
+            dayCounter = 6;
         }
         public void RunGame() //Master Method
         {
