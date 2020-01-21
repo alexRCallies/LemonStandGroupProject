@@ -68,6 +68,7 @@ namespace LSGP
         }
         public static void End()
         {
+
             Console.WriteLine("Thanks for playing Lemonade Stand");
             Console.WriteLine("Did you make it the whole week?");
             Console.WriteLine("If not maybe this isnt your true calling, we can't all be lemonade salesmen..");
