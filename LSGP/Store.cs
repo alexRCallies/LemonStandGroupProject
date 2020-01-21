@@ -15,8 +15,6 @@ namespace LSGP
         List<Items> storeStock = new List<Items>();
         public int howManyToBuy;
         Player player;
-        
-        
         public double finalSale;
         public Store(Player player)
         {
@@ -25,7 +23,6 @@ namespace LSGP
             storeStock.Add(sugarCube);
             storeStock.Add(iceCube);
             storeStock.Add(cups);
-           
         }
         public void PrintStoreStock()
         {
@@ -52,14 +49,12 @@ namespace LSGP
             {
                 player.wallet.Money -= finalSale;
                 player.inventory.lemons[0].numInInventory += howManyToBuy;
-                //player.inventory.ShowCurrentInventory();
                 player.wallet.NewBalance();
                 Console.WriteLine("");
             }
             else
             {
                 Console.WriteLine("\nNot enough funds :(\n");
-                
             }
         }
         public void BuySugarCubes()
@@ -79,7 +74,6 @@ namespace LSGP
             {
                 player.wallet.Money -= finalSale;
                 player.inventory.sugarCube.numInInventory += howManyToBuy;
-                //player.inventory.ShowCurrentInventory();
                 player.wallet.NewBalance();
                 Console.WriteLine("");
             }
@@ -106,7 +100,7 @@ namespace LSGP
             {
                 player.wallet.Money -= finalSale;
                 player.inventory.iceCube.numInInventory += howManyToBuy;
-                //player.inventory.ShowCurrentInventory();
+                
                 player.wallet.NewBalance();
                 Console.WriteLine("");
             }
@@ -133,17 +127,15 @@ namespace LSGP
             {
                 player.wallet.Money -= finalSale;
                 player.inventory.cup.numInInventory += (howManyToBuy * cups.numOfCupsInAPack);
-                //player.inventory.ShowCurrentInventory();
                 player.wallet.NewBalance();
                 Console.WriteLine("");
             }
             else
             {
                 Console.WriteLine("\nNot enough funds :(\n");
-                
             }
         }
-        public void BuyItems()//Open/Closed principle, methods can be extended for further gameplay without any drastic repercussions. -alex
+        public void BuyItems()//Open/Closed principle, methods can be extended for further gameplay without any drastic repercussions, such as additional ingredients. -alex
         {
             Console.WriteLine("\n\nLets head to the store to stock up for the day!");
             PrintStoreStock();
@@ -190,7 +182,6 @@ namespace LSGP
                 Console.WriteLine("That is a not a valid entry, please try again.\n");
                 BuyItems();
             }
-          
         }
     }
 }
