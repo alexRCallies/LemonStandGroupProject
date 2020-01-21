@@ -30,7 +30,7 @@ namespace LSGP
         {
             ForecastWeather();
             ForecastTemperature();
-            Console.WriteLine("\n\nThe Forecast for today is " + predictedForecast + " & " + temperature + " degrees.");
+            Console.WriteLine("\n\n******   The Forecast for today is " + predictedForecast + " & " + temperature + " degrees.   ******   ");
         }
         public void ActualDayWeather()
         {
@@ -52,9 +52,9 @@ namespace LSGP
 
         public void ActualConditions()  // SINGLE RESPONSIBILITY EXAMPLE - random used to select the actual weather
         {
-            weatherConditions = new List<string>() { "Cloudy", "Rainy", "Thunder Storms", "Sunny" };
+            weatherConditions = new List<string>() { "Rainy", "Sunny", "Thunder Storms", "Cloudy" };
 
-            int index = random.Next(weatherConditions.Count-1);
+            int index = random.Next(weatherConditions.Count);
             condition = weatherConditions[index];
 
         }
@@ -64,25 +64,25 @@ namespace LSGP
             if (condition == "Cloudy")
             {
                 actualTemperature = temperature -= 5;
-                Console.WriteLine("Todays actual weather conditions are " + condition + " & " + actualTemperature + " degrees.\n");
+                Console.WriteLine("******   Todays actual weather conditions are " + condition + " & " + actualTemperature + " degrees.   ******\n");
 
             }
             else if (condition == "Sunny")
             {
                 actualTemperature = temperature += 10;
-                Console.WriteLine("Todays actual weather conditions are " + condition + " & " + actualTemperature + " degrees.\n");
+                Console.WriteLine("******   Todays actual weather conditions are " + condition + " & " + actualTemperature + " degrees.   ******\n");
 
             }
             else if (condition == "Rainy")
             {
-                actualTemperature = temperature -= 15;
-                Console.WriteLine("Todays actual weather conditions are " + condition + " & " + actualTemperature + " degrees.\n");
+                actualTemperature = temperature -= 8;
+                Console.WriteLine("******   Todays actual weather conditions are " + condition + " & " + actualTemperature + " degrees.   ******\n");
                 
             }
             else
             {
-                actualTemperature = temperature -= 13;
-                Console.WriteLine("Todays actual weather conditions are " + condition + " & " + actualTemperature + " degrees.\n");
+                actualTemperature = temperature -= 10;
+                Console.WriteLine("******   Todays actual weather conditions are " + condition + " & " + actualTemperature + " degrees.   ******\n");
                
             }
 
