@@ -165,7 +165,7 @@ namespace LSGP
         }
         public void MakeAPitcherOFLemonade()
         {
-            Console.WriteLine("Let make some lemonade :-)");
+            Console.WriteLine("\nLet make some lemonade :-)");
             AddLemonsToLemonade();
             AddSugarToLemonade();
             AddIceToLemonade();

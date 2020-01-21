@@ -33,7 +33,7 @@ namespace LSGP
         // member methods
         public void ShowCurrentInventory()
         {
-            Console.WriteLine("\nYou Have: ");
+            Console.WriteLine("\nHere is your current inventory.");
             foreach(Lemon lemon in lemons)
             {
                 Console.WriteLine(lemon.name+": "+lemon.numInInventory);

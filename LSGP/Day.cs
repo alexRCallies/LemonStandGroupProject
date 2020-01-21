@@ -81,11 +81,11 @@ namespace LSGP
                 
                 if (arrival <= customer.chanceToGoToStand)
                 {
-                    Console.WriteLine(customer.name + " arrived at the Lemonade Stand");
+                    Console.WriteLine(customer.name + " arrived at the Lemonade Stand.");
                 }
                 else
                 {
-                    Console.WriteLine(customer.name + " did not got to the stand today");
+                    Console.WriteLine(customer.name + " did not go to the stand today.");
                     customers.Remove(customer);
                 }
                 
@@ -103,13 +103,13 @@ namespace LSGP
                 int coldBuy = randomBasedOnColdness.Next(1, 21);
                 if (priceBuy <= customer.chanceToBuyprice)
                 {
-                    Console.WriteLine(customer.name + " thinks the price is fair");
+                    Console.WriteLine(customer.name + " thinks the price is fair.");
                     if (sweetBuy <= customer.chanceToBuySweetLevel)
                     {
-                        Console.WriteLine(customer.name + " thinks the recipe is good");
+                        Console.WriteLine(customer.name + " thinks the recipe is good.");
                         if (coldBuy <= customer.chanceToBuyColdLevel)
                         {
-                            Console.WriteLine(customer.name + " thinks the tempature of the lemonade is good");
+                            Console.WriteLine(customer.name + " thinks the temperature of the lemonade is good.");
                             player.wallet.Money += player.recipe.pricePerCup;
                             player.wallet.NewBalance();
                             player.pitcher.cupsPerPitcher--;
@@ -122,18 +122,18 @@ namespace LSGP
                         }
                         else
                         {
-                            Console.WriteLine(customer.name + " thinks the tempature of the lemonade is bad");
+                            Console.WriteLine(customer.name + " thinks the temperature of the lemonade is bad.");
                             customers.Remove(customer);
                         }
                     }
                     else
                     {
-                        Console.WriteLine(customer.name + " thinks the recipe is bad");
+                        Console.WriteLine(customer.name + " thinks the recipe is bad.");
                     }
                 }
                 else
                 {
-                    Console.WriteLine(customer.name + " thinks the price is unfair");
+                    Console.WriteLine(customer.name + " thinks the price is unfair.");
                 }
 
             }
@@ -151,7 +151,7 @@ namespace LSGP
             }
             else
             {
-                Console.WriteLine(customer.name + " is satisfied");
+                Console.WriteLine(customer.name + " is satisfied.");
             }
         }
 }

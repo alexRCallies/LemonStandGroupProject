@@ -92,7 +92,7 @@ namespace LSGP
         }
         public void PlayerChoice()
         {
-            Console.WriteLine("\nWhat do you want to do Store/Inventory/Recipe/Play?");
+            Console.WriteLine("\nWhat do you want to do Store/Inventory?");
             player.input = Console.ReadLine();
             if ((player.input == "Store") || (player.input == "store") || (player.input == "sTore") || (player.input == "STORE")
                 || (player.input == "stOre") || (player.input == "StoRe") || (player.input == "storE") || (player.input == "S"))
