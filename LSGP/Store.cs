@@ -156,24 +156,28 @@ namespace LSGP
                 || (player.input == "lemon") || (player.input == "LEMON") || (player.input == "Lemons"))
             {
                 BuyLemons();
+                Console.Clear();
                 BuyItems();
             }
             else if ((player.input == storeStock[2].name) || (player.input == "Sugar") || (player.input == "SUGAR")
                 || (player.input == "SUGAR CUBE") || (player.input == "SugarCube") || (player.input == "sugar cube") || (player.input == "sugar"))
             {
                 BuySugarCubes();
+                Console.Clear();
                 BuyItems();
             }
             else if ((player.input == storeStock[2].name) || (player.input == "Ice") || (player.input == "ICE")
                 || (player.input == "ICE CUBE") || (player.input == "IceCube") || (player.input == "ice") || (player.input == "Ice Cube") || (player.input == "ice cube"))
             {
                 BuyIceCubes();
+                Console.Clear();
                 BuyItems();
             }
             else if ((player.input == storeStock[3].name) || (player.input == "CUPS") || (player.input == "CUP")
                 || (player.input == "cup") || (player.input == "CUps") || (player.input == "cups") || (player.input == "Cups") || (player.input == "Cup"))
             {
                 BuyCups();
+                Console.Clear();
                 BuyItems();
             }
             else if ((player.input == "No") || (player.input == "Nothing") || (player.input == "nada") || (player.input == "Nada")

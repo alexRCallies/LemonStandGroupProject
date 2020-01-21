@@ -31,6 +31,9 @@ namespace LSGP
             ForecastWeather();
             ForecastTemperature();
             Console.WriteLine("\n\n******   The Forecast for today is " + predictedForecast + " & " + temperature + " degrees.   ******   ");
+            Console.WriteLine("(Press ENTER to CONTINUE)");
+            Console.ReadLine();
+            Console.Clear();
         }
         public void ActualDayWeather()
         {

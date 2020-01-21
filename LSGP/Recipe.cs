@@ -166,6 +166,7 @@ namespace LSGP
         }
         public void MakeAPitcherOFLemonade()
         {
+            Console.Clear();
             Console.WriteLine("\nLet make some lemonade :-)");
             AddLemonsToLemonade();
             AddSugarToLemonade();
@@ -185,6 +186,7 @@ namespace LSGP
             {
                 Console.WriteLine("How much should we sell each cup for?");
                 pricePerCup = double.Parse(Console.ReadLine());
+                Console.Clear();
             }
             catch (FormatException)
             {

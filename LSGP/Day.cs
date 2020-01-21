@@ -310,6 +310,8 @@ namespace LSGP
 
             Console.WriteLine("You made: $" +dailyProfit);
             Console.WriteLine("The Day is Over");
+            Console.WriteLine("(Press ENTER to CONTINUE)");
+            Console.ReadLine();
            
             player.inventory.pitchers[0].numOfPitchers = 0;
         }
