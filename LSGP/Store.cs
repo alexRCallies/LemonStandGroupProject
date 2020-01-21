@@ -145,7 +145,7 @@ namespace LSGP
         }
         public void BuyItems()//Open/Closed principle, methods can be extended for further gameplay without any drastic repercussions. -alex
         {
-            Console.WriteLine("\n\nLets head to the store to stock up for your first day!");
+            Console.WriteLine("\n\nLets head to the store to stock up for the day!");
             PrintStoreStock();
             player.inventory.ShowCurrentInventory();
             player.wallet.NewBalance();
