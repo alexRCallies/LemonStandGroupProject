@@ -10,6 +10,7 @@ namespace LSGP
     class Game
 
     {
+        public double weeklyProfit;
         public int dayCounter;
         Player player;
         Store store;
@@ -110,13 +111,17 @@ namespace LSGP
             
             if(dayCounter > 0)
             {
+                weeklyProfit += day.dailyProfit;
                 dayCounter--;
                 BeginDay();
                 
             }
             else
             {
+                Console.WriteLine("You ended the week with:");
                 player.wallet.NewBalance();
+                Console.WriteLine("Total profit: $"+weeklyProfit);
+
             }
 
         }
