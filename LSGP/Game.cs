@@ -10,7 +10,7 @@ namespace LSGP
     {
         Player player;
         Store store;
-
+        
 
 
         Day day;
@@ -98,7 +98,6 @@ namespace LSGP
                 || (player.input == "stOre") || (player.input == "StoRe") || (player.input == "storE") || (player.input == "S"))
             {
                 store = new Store(player);
-                day.weather.MasterForecast();
                 store.BuyItems();
                 PlayerChoice();
             }
@@ -131,7 +130,6 @@ namespace LSGP
         {
             day = new Day(player);
             store = new Store(player);
-            day.weather.MasterForecast();
             store.BuyItems();
             player.inventory.ShowCurrentInventory();
             player.recipe.MakeAPitcherOFLemonade();

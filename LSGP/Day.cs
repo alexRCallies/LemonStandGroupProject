@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace LSGP
 {
-    public class Day
+    public class Day : Weather
     {
         // member variables
 
-         public int dayCounter = 7;
-        public Weather weather;
-       public Player player;
+        public int dayCounter = 7;
+        public Player player;
         Customer aaron;
         Customer alex;
         Customer david;
@@ -159,22 +158,22 @@ namespace LSGP
         public void CheckActualWeather()
         {
            
-            weather.ActualDayWeather();
+            ActualDayWeather();
 
             foreach (Customer customer in customers)
             {
-                if (weather.condition == "Sunny")
+                if (condition == "Sunny")
                 {
                     customer.chanceToGoToStand += 2;
                     customer.chanceToBuyColdLevel -= 3;
 
                 }
-                else if (weather.condition == "Rainy")
+                else if (condition == "Rainy")
                 {
                     customer.chanceToGoToStand -= 3;
                     customer.chanceToBuyColdLevel += 5;
                 }
-                else if (weather.condition == "Thunder Storm")
+                else if (condition == "Thunder Storm")
                 {
                     customer.chanceToGoToStand -= 10;
                     customer.chanceToBuyColdLevel += 10;
