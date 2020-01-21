@@ -39,7 +39,7 @@ namespace LSGP
         {
             Console.Clear();
             day = new Day(player);
-            Console.WriteLine("\nYou have " + dayCounter + " days left.");
+            Console.WriteLine("\nHi there " + player.name + "! You have " + dayCounter + " days left to make as much money as you can.");
             store = new Store(player);
             day.weather.MasterForecast();
             store.BuyItems();
