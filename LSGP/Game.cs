@@ -38,7 +38,7 @@ namespace LSGP
         {
             int numOfLemonsAndSugar;
             numOfLemonsAndSugar = player.inventory.lemons[0].numInInventory + player.inventory.sugarCubes[0].numInInventory;
-            if(numOfLemonsAndSugar > 6 && player.wallet.Money <= 0)
+            if(numOfLemonsAndSugar < 6 && player.wallet.Money <= 0)
             {
                 Console.WriteLine("You do not have enough money to buy the minimum amount of stock");
                 User_Interface.End();
