@@ -97,7 +97,7 @@ namespace LSGP
         {
            
             day = new Day(player);
-            Console.WriteLine("You have " + dayCounter + " days left.");
+            Console.WriteLine("\nYou have " + dayCounter + " days left.");
             store = new Store(player);
             day.weather.MasterForecast();
             store.BuyItems();
@@ -115,9 +115,9 @@ namespace LSGP
             }
             else
             {
-                Console.WriteLine("You ended the week with:");
+                Console.WriteLine("\nYou ended the week with:");
                 player.wallet.NewBalance();
-                Console.WriteLine("Total profit: $"+weeklyProfit);
+                Console.WriteLine("\nTotal profit: $"+weeklyProfit);
                 Console.ReadLine();
 
             }

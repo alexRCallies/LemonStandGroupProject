@@ -8,7 +8,9 @@ namespace LSGP
 {
    public class Wallet
     {
-        private double money = 40;
+
+        private double money = 100;
+
         public double Money
         {
             get
