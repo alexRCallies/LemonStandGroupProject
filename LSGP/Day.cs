@@ -28,7 +28,7 @@ namespace LSGP
         Customer sasha;
         Customer steven;
         Customer yolanda;
-        
+        public List<Customer> remainingCustomers = new List<Customer>();
        public List<Customer> customers = new List<Customer>();
 
         public int weatherAdjust;
@@ -75,46 +75,61 @@ namespace LSGP
         // member methods
         public void GoToLemonadeStand()
         {
-            foreach (Customer customer in customers)
+           for(int i = 0; i<customers.Count; i++)
+           { 
+                
+                
+
+                    Random goToRandom = new Random();
+                    int arrival = goToRandom.Next(1, 21);
+
+
+                    if (arrival <= customers[i].chanceToGoToStand)
+                    {
+                        Console.WriteLine(customers[i].name + " arrived at the Lemonade Stand");
+                    remainingCustomers.Add(customers[i]);
+
+                    }
+                    else
+                    {
+                        Console.WriteLine(customers[i].name + " did not got to the stand today");
+                        
+
+                    }
+
+                
+           }
+           
+            foreach(Customer customer in remainingCustomers)
             {
-               
-                Random goToRandom = new Random();
-                int arrival = goToRandom.Next(1, 21);
-                
-                if (arrival <= customer.chanceToGoToStand)
-                {
-                    Console.WriteLine(customer.name + " arrived at the Lemonade Stand");
-                }
-                else
-                {
-                    Console.WriteLine(customer.name + " did not got to the stand today");
-                    customers.RemoveAt(0);
-                }
-                
+                Console.WriteLine(customer.name);
             }
         }
         public void BuyLemonade()
         {
-            foreach(Customer customer in customers)
-            {
+            customers.Clear();
+            for (int i = 0; i<remainingCustomers.Count;i++)
+                
+                {
                 Random randomBasedOnPrice = new Random();
                 int priceBuy = randomBasedOnPrice.Next(1, 21);
                 Random randomBasedOnSweetness = new Random();
                 int sweetBuy = randomBasedOnSweetness.Next(1, 21);
                 Random randomBasedOnColdness = new Random();
                 int coldBuy = randomBasedOnColdness.Next(1, 21);
-                if (priceBuy <= customer.chanceToBuyprice)
+                if (priceBuy <= remainingCustomers[i].chanceToBuyprice)
                 {
-                    Console.WriteLine(customer.name + " thinks the price is fair");
-                    if (sweetBuy <= customer.chanceToBuySweetLevel)
+                    Console.WriteLine(remainingCustomers[i].name + " thinks the price is fair");
+                    if (sweetBuy <= remainingCustomers[i].chanceToBuySweetLevel)
                     {
-                        Console.WriteLine(customer.name + " thinks the recipe is good");
-                        if (coldBuy <= customer.chanceToBuyColdLevel)
+                        Console.WriteLine(remainingCustomers[i].name + " thinks the recipe is good");
+                        if (coldBuy <= remainingCustomers[i].chanceToBuyColdLevel)
                         {
-                            Console.WriteLine(customer.name + " thinks the tempature of the lemonade is good");
+                            Console.WriteLine(remainingCustomers[i].name + " thinks the tempature of the lemonade is good");
                             player.wallet.Money += player.recipe.pricePerCup;
                             player.wallet.NewBalance();
                             player.pitcher.cupsPerPitcher--;
+                            customers.Add(remainingCustomers[i]);
                             if(player.pitcher.cupsPerPitcher == 0)
                             {
                                 player.pitcher.pitchers.RemoveAt(0);
@@ -124,41 +139,48 @@ namespace LSGP
                                     break;
                                 }
                             }
-                            BuyAgain();
+                            
                         }
                         else
                         {
-                            Console.WriteLine(customer.name + " thinks the tempature of the lemonade is bad");
-                            customers.Remove(customer);
+                            Console.WriteLine(remainingCustomers[i].name + " thinks the tempature of the lemonade is bad");
+                                
                         }
                     }
                     else
                     {
-                        Console.WriteLine(customer.name + " thinks the recipe is bad");
+                        Console.WriteLine(remainingCustomers[i].name + " thinks the recipe is bad");
+                            
                     }
                 }
                 else
                 {
-                    Console.WriteLine(customer.name + " thinks the price is unfair");
+                    Console.WriteLine(remainingCustomers[i].name + " thinks the price is unfair");
+                        
                 }
 
             }
+            
+            BuyAgain();
         }
         
         public void BuyAgain()
         {
-            foreach (Customer customer in customers)
+            remainingCustomers.Clear();
+            for (int i = 0; i<customers.Count;i++)
             { 
             Random buyAgain = new Random();
             int again = buyAgain.Next(1, 11);
-            if (again <= customer.chanceToBuyAgain)
+            if (again <= customers[i].chanceToBuyAgain)
             {
-                BuyLemonade();
+                    remainingCustomers.Add(customers[i]);
+                
             }
             else
             {
-                Console.WriteLine(customer.name + " is satisfied");
+                Console.WriteLine(customers[i].name + " is satisfied");
             }
+                
         }
 }
         public void CheckActualWeather()
@@ -191,10 +213,30 @@ namespace LSGP
         {
             CheckActualWeather();
             GoToLemonadeStand();
-            while (customers.Count > 0 || player.inventory.cup.numInInventory > 0 || player.pitcher.pitchers.Count > 0)
-            {
-                BuyLemonade();
+            if(player.pitcher.pitchers.Count > 0)
+            { 
+                if(player.inventory.cups[0].numInInventory >0)
+                {
+                    if(customers.Count > 0)
+                    {
+                        BuyLemonade();
+                    }
+                    else
+                    {
+                        Console.WriteLine("No one wants to buy lemonade");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("You have no cups");
+                }
             }
+            else
+            {
+                Console.WriteLine("You have no more lemonade");
+            }
+                
+            
             dayCounter--;
             player.pitcher.pitchers.Clear();
         }

@@ -180,6 +180,7 @@ namespace LSGP
                 pitcher.pitchers.Add(pitcher);
             }
             pitcher.PrintPitchers();
+            Console.WriteLine("How much to sell the cups for?");
             try
             {
                 pricePerCup = double.Parse(Console.ReadLine());

@@ -60,30 +60,30 @@ namespace LSGP
         }
         public void ActualTemperature()  // SINGLE RESPONSIBILITY EXAMPLE - sets the actual temp based on the actual weather condition - Nick
         {
-            
+
             if (condition == "Cloudy")
             {
                 actualTemperature = temperature -= 5;
-                Console.WriteLine("Todays actual weather conditions are " + condition + " & "+ actualTemperature + " degrees.");
-                Console.ReadLine();
+                Console.WriteLine("Todays actual weather conditions are " + condition + " & " + actualTemperature + " degrees.");
+
             }
             else if (condition == "Sunny")
             {
                 actualTemperature = temperature += 10;
                 Console.WriteLine("Todays actual weather conditions are " + condition + " & " + actualTemperature + " degrees.");
-                Console.ReadLine();
+
             }
             else if (condition == "Rainy")
             {
                 actualTemperature = temperature -= 15;
                 Console.WriteLine("Todays actual weather conditions are " + condition + " & " + actualTemperature + " degrees.");
-                Console.ReadLine();
+                
             }
-            else 
+            else
             {
                 actualTemperature = temperature -= 13;
                 Console.WriteLine("Todays actual weather conditions are " + condition + " & " + actualTemperature + " degrees.");
-                Console.ReadLine();
+               
             }
 
         }
