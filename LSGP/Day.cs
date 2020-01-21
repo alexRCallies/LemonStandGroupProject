@@ -10,7 +10,7 @@ namespace LSGP
     {
         // member variables
         public Weather weather = new Weather();
-        public int dayCounter = 7;
+        
         public double dailyProfit;
         public Player player;
         Customer aaron;
@@ -126,12 +126,9 @@ namespace LSGP
                             customers.Add(remainingCustomers[i]);
                             if (player.inventory.pitchers[0].cupsPerPitcher == 0)
                             {
-                                player.inventory.pitchers.RemoveAt(0);
+                                player.inventory.pitchers[0].numOfPitchers--;
                                 player.inventory.pitchers[0].cupsPerPitcher = 15;
-                                if (player.inventory.pitchers.Count == 0)
-                                {
-                                    break;
-                                }
+                                
                             }
                             if(player.inventory.cups[0].numInInventory == 0)
                             {
@@ -234,7 +231,7 @@ namespace LSGP
                 {
                     remainingCustomers[i].chanceToBuyprice -= 10;
                 }
-                if(player.inventory.pitchers[0].sweetLevel == 5)
+                if(player.inventory.pitchers[0].sweetLevel <= 5)
                 {
                     remainingCustomers[i].chanceToBuySweetLevel += 100;
                 }
@@ -313,7 +310,7 @@ namespace LSGP
 
             Console.WriteLine("You made: $" +dailyProfit);
             Console.WriteLine("The Day is Over");
-            dayCounter--;
+           
             player.inventory.pitchers[0].numOfPitchers = 0;
         }
 

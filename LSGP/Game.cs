@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace LSGP
 {
+   
     class Game
+
     {
+        public int dayCounter;
         Player player;
         Store store;
       
@@ -21,7 +24,7 @@ namespace LSGP
         {
             this.player = new Player();
             this.store = new Store(player);
-            
+            dayCounter = 7;
         }
 
         public void RunGame() //Master Method
@@ -96,7 +99,7 @@ namespace LSGP
         {
            
             day = new Day(player);
-            Console.WriteLine("You have " + day.dayCounter + " days left.");
+            Console.WriteLine("You have " + dayCounter + " days left.");
             store = new Store(player);
             day.weather.MasterForecast();
             store.BuyItems();
@@ -105,9 +108,11 @@ namespace LSGP
             day.weather.ActualDayWeather();
             day.MasterCustomerBuyLemonade();
             
-            if(day.dayCounter > 0)
+            if(dayCounter > 0)
             {
+                dayCounter--;
                 BeginDay();
+                
             }
             else
             {
