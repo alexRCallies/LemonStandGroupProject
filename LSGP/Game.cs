@@ -94,7 +94,9 @@ namespace LSGP
        
         public void BeginDay()
         {
+           
             day = new Day(player);
+            Console.WriteLine("You have " + day.dayCounter + " days left.");
             store = new Store(player);
             day.weather.MasterForecast();
             store.BuyItems();
