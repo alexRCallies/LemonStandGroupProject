@@ -10,7 +10,8 @@ namespace LSGP
     {
 
         private double money = 100;
-
+        public double dailyProfitOrLoss = 0;
+        public double weeklyProfitLoss;
         public double Money
         {
             get
@@ -29,6 +30,36 @@ namespace LSGP
              public void NewBalance()
         {
             Console.WriteLine("Balance: $"+money);
+        }
+        public void DisplayProfitOrLoss()
+        {
+            if(dailyProfitOrLoss > 0)
+            {
+                Console.WriteLine("You made $"+dailyProfitOrLoss);
+            }
+            else if(dailyProfitOrLoss < 0)
+            {
+                Console.WriteLine("You lost $"+dailyProfitOrLoss);
+            }
+            else
+            {
+                Console.WriteLine("You went even");
+            }
+        }
+        public void DisplayWeeklyProfitOrLoss()
+        {
+            if(weeklyProfitLoss >0)
+            {
+                Console.WriteLine("You made $" + weeklyProfitLoss);
+            }
+            else if(weeklyProfitLoss <0)
+            {
+                Console.WriteLine("You lost $"+weeklyProfitLoss);
+            }
+            else
+            {
+                Console.WriteLine("You went even");
+            }
         }
 
     }

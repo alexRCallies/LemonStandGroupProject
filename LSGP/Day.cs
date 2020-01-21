@@ -119,6 +119,7 @@ namespace LSGP
                         {
                             Console.WriteLine(" thinks the temperature of the lemonade is good");
                             player.wallet.Money += player.recipe.pricePerCup;
+                            player.wallet.dailyProfitOrLoss += player.recipe.pricePerCup;
                             dailyProfit += player.recipe.pricePerCup;
                             player.wallet.NewBalance();
                             player.inventory.pitchers[0].cupsPerPitcher--;
@@ -308,11 +309,12 @@ namespace LSGP
                 Console.WriteLine("You have no more lemonade");
             }
 
-            Console.WriteLine("You made: $" +dailyProfit);
+            player.wallet.DisplayProfitOrLoss();
+            player.wallet.weeklyProfitLoss += player.wallet.dailyProfitOrLoss;
             Console.WriteLine("The Day is Over");
             Console.WriteLine("(Press ENTER to CONTINUE)");
             Console.ReadLine();
-           
+            player.wallet.dailyProfitOrLoss = 0;
             player.inventory.pitchers[0].numOfPitchers = 0;
         }
 

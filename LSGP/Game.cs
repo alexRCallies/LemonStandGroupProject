@@ -50,13 +50,13 @@ namespace LSGP
             {
                 Console.WriteLine("\nYou ended the week with:");
                 player.wallet.NewBalance();
-                Console.WriteLine("\nTotal profit: $" + weeklyProfit);
+                player.wallet.DisplayWeeklyProfitOrLoss();
                 Console.ReadLine();
                 User_Interface.End();
             }
             else
             {
-                weeklyProfit += day.dailyProfit;
+                
                 dayCounter--;
                 BeginDay();
             }
