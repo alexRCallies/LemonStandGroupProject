@@ -8,7 +8,7 @@ namespace LSGP
 {
    public class Recipe
     {
-        Pitcher pitcher = new Pitcher();
+       
         Inventory inventory;
         public int addLemons;
         public int addSugar;
@@ -28,7 +28,7 @@ namespace LSGP
         public Recipe(Inventory inventory)
         {
             this.inventory = inventory;
-            pitcher.pitchers.Add(pitcher);
+          
             
         }
         public void AddLemonsToLemonade()
@@ -49,7 +49,7 @@ namespace LSGP
                 {
                     if (addLemons <= maxAmountOFSugarOrLemons)
                     {  
-                            pitcher.PitcherSize -= addLemons;
+                            inventory.pitcher.PitcherSize -= addLemons;
                             lemonsInLemonade = addLemons;  
                     }
                     else
@@ -89,21 +89,21 @@ namespace LSGP
                 {
                     if (addSugar <= maxAmountOFSugarOrLemons)
                     {
-                        if (addSugar == pitcher.PitcherSize)
+                        if (addSugar == inventory.pitcher.PitcherSize)
                         {
                             sugarInLemonade = addSugar;
 
                         }
                         else
                         {
-                            Console.WriteLine("You need add " + pitcher.PitcherSize + " more sugars.");
+                            Console.WriteLine("You need add " + inventory.pitcher.PitcherSize + " more sugars.");
                             AddSugarToLemonade();
                         }
                     }
                 }
                 else
                 {
-                    Console.WriteLine("\nMust have at least " + pitcher.PitcherSize);
+                    Console.WriteLine("\nMust have at least " + inventory.pitcher.PitcherSize);
                     AddSugarToLemonade();
                 }
             }
@@ -170,18 +170,16 @@ namespace LSGP
             AddLemonsToLemonade();
             AddSugarToLemonade();
             AddIceToLemonade();
-            pitcher.PitcherSize = 6;
+            inventory.pitcher.PitcherSize = 6;
             MakeMultiplePitchers();
 
-            pitcher.sweetLevel = sugarInLemonade;
-            pitcher.sourLevel = lemonsInLemonade;
-            pitcher.coldLevel = iceInLemonade;
-            while (howManyPitchers >= 1)
-            {
-                howManyPitchers--;
-                pitcher.pitchers[0].numOfPitchers++;
-            }
-            pitcher.PrintPitchers();
+            inventory.pitcher.sweetLevel = sugarInLemonade;
+            inventory.pitcher.sourLevel = lemonsInLemonade;
+            inventory.pitcher.coldLevel = iceInLemonade;
+
+            inventory.pitchers[0].numOfPitchers += howManyPitchers;
+           
+            inventory.PrintPitchers();
            
             try
             {

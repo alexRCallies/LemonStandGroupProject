@@ -16,7 +16,7 @@ namespace LSGP
         public int chanceToBuySweetLevel;
         public int chanceToBuy;
         public int chanceToBuyAgain;
-        
+       public Random rng1;
        
         public Customer(string name, int age, int chanceToGoToStand, int chanceToBuyPrice, int chacneToBuySweet, int chanceToBuyColdLevel, int chanceToBuyAgain)
         {
@@ -27,7 +27,7 @@ namespace LSGP
             this.chanceToBuySweetLevel = chacneToBuySweet;
             this.chanceToBuyColdLevel = chanceToBuyColdLevel;
             this.chanceToBuyAgain = chanceToBuyAgain;
-
+            this.rng1 = new Random();
         }
 
 
