@@ -90,42 +90,7 @@ namespace LSGP
             player.name = Console.ReadLine();
             return player.name;
         }
-        public void PlayerChoice()
-        {
-            Console.WriteLine("\nWhat do you want to do Store/Inventory?");
-            player.input = Console.ReadLine();
-            if ((player.input == "Store") || (player.input == "store") || (player.input == "sTore") || (player.input == "STORE")
-                || (player.input == "stOre") || (player.input == "StoRe") || (player.input == "storE") || (player.input == "S"))
-            {
-                store = new Store(player);
-                store.BuyItems();
-                PlayerChoice();
-            }
-            else if ((player.input == "Inventory") || (player.input == "I") || (player.input == "Inven") || (player.input == "INVENTORY")
-                || (player.input == "inventory") || (player.input == "Inventry") || (player.input == "Invent") || (player.input == "In"))
-            {
-                player.inventory.ShowCurrentInventory();
-                PlayerChoice();
-            }
-
-            else if ((player.input == "Recipe") || (player.input == "R") || (player.input == "RECIPE") || (player.input == "recipe")
-                || (player.input == "Recip") || (player.input == "REcipe") || (player.input == "reCipe") || (player.input == "Rec"))
-            {
-                
-                player.recipe.MakeAPitcherOFLemonade();
-                PlayerChoice();
-            }
-            else if ((player.input == "Play") || (player.input == "P") || (player.input == "PLAY") || (player.input == "P")
-                || (player.input == "PLay") || (player.input == "play"))
-            {
-                BeginDay();
-            }
-            else
-            {
-                Console.WriteLine("That is not a valid entry, try again.");
-                PlayerChoice();
-            }
-        }
+       
         public void BeginDay()
         {
             day = new Day(player);
