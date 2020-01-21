@@ -9,7 +9,7 @@ namespace LSGP
    public class Lemon : Items
     {
         
-        public Lemon()
+        public Lemon() //Liskovs Rule: we can easily switch this with its parent class and it would be identical essentially -Alex
         {
             name = "Lemon";
             price = 1;
