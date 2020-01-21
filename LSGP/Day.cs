@@ -37,21 +37,21 @@ namespace LSGP
         public Day(Player player)
         {
             this.player = player;
-            this.aaron = new Customer("A-a-ron", 14, 15, 15, 12, 15, 5);
-            this.alex = new Customer("Alex", 21, 16, 14, 15, 12, 4);
-            this.david = new Customer("David", 32, 17, 14, 12, 14, 6);
-            this.leah = new Customer("Leah", 15, 17, 5, 12, 15, 4);
-            this.lisa = new Customer("Lisa", 28, 14, 15, 12, 17, 5);
-            this.madonna = new Customer("Madonna", 55, 14, 16, 12, 14, 3);
-            this.mark = new Customer("Mark", 24, 16, 14, 12, 14, 5);
+            this.aaron = new Customer("A-a-ron", 14, 13, 15, 12, 15, 5);
+            this.alex = new Customer("Alex", 21, 12, 14, 15, 12, 4);
+            this.david = new Customer("David", 32, 15, 14, 12, 14, 6);
+            this.leah = new Customer("Leah", 15, 15, 5, 12, 15, 4);
+            this.lisa = new Customer("Lisa", 28, 10, 15, 12, 17, 5);
+            this.madonna = new Customer("Madonna", 55, 12, 16, 12, 14, 3);
+            this.mark = new Customer("Mark", 24, 16, 10, 12, 14, 5);
             this.mike = new Customer("Mike", 33, 14, 15, 12, 17, 4);
-            this.nick = new Customer("Nick", 41, 16, 16, 12, 16, 5);
-            this.paul = new Customer("Paul", 45, 15, 14, 12, 14, 5);
+            this.nick = new Customer("Nick", 41, 10, 16, 12, 16, 5);
+            this.paul = new Customer("Paul", 45, 12, 14, 12, 14, 5);
             this.richard = new Customer("Richard", 25, 13, 17, 12, 17, 6);
             this.ryan = new Customer("Ryan", 70, 13, 16, 12, 16, 8);
-            this.sasha = new Customer("Sashe", 37, 16, 13, 12, 15, 4);
-            this.steven = new Customer("Steven", 43, 17, 15, 12, 15, 4);
-            this.yolanda = new Customer("Yolanda", 53, 15, 15, 12, 15, 5);
+            this.sasha = new Customer("Sashe", 37, 13, 13, 12, 15, 4);
+            this.steven = new Customer("Steven", 43, 15, 15, 12, 15, 4);
+            this.yolanda = new Customer("Yolanda", 53, 10, 15, 12, 15, 5);
             customers.Add(aaron);
             customers.Add(alex);
             customers.Add(david);
@@ -75,8 +75,8 @@ namespace LSGP
         {
            for(int i = 0; i<customers.Count; i++)
            { 
-                    Random goToRandom = new Random();
-                    int arrival = goToRandom.Next(1, 21);
+                    //Random goToRNG = new Random();
+                    int arrival = customers[i].rng1.Next(1, 21);
 
 
                     if (arrival <= customers[i].chanceToGoToStand)
@@ -106,12 +106,12 @@ namespace LSGP
             for (int i = 0; i<remainingCustomers.Count;i++)
                 
                 {
-                Random randomBasedOnPrice = new Random();
-                int priceBuy = randomBasedOnPrice.Next(1, 21);
-                Random randomBasedOnSweetness = new Random();
-                int sweetBuy = randomBasedOnSweetness.Next(1, 21);
-                Random randomBasedOnColdness = new Random();
-                int coldBuy = randomBasedOnColdness.Next(1, 21);
+                //Random randomBasedOnPrice = new Random();
+                int priceBuy = remainingCustomers[0].rng1.Next(1, 21);
+               // Random randomBasedOnSweetness = new Random();
+                int sweetBuy = remainingCustomers[0].rng1.Next(1, 21);
+               // Random randomBasedOnColdness = new Random();
+                int coldBuy = remainingCustomers[0].rng1.Next(1, 21);
                 if (priceBuy <= remainingCustomers[i].chanceToBuyprice)
                 {
 
@@ -124,16 +124,21 @@ namespace LSGP
                             Console.WriteLine(remainingCustomers[i].name + " thinks the tempature of the lemonade is good");
                             player.wallet.Money += player.recipe.pricePerCup;
                             player.wallet.NewBalance();
-                            player.pitcher.cupsPerPitcher--;
+                            player.inventory.pitchers[0].cupsPerPitcher--;
+                            player.inventory.cups[0].numInInventory--;
                             customers.Add(remainingCustomers[i]);
-                            if (player.pitcher.cupsPerPitcher == 0)
+                            if (player.inventory.pitchers[0].cupsPerPitcher == 0)
                             {
-                                player.pitcher.pitchers.RemoveAt(0);
-                                player.pitcher.cupsPerPitcher = 15;
-                                if (player.pitcher.pitchers.Count == 0)
+                                player.inventory.pitchers.RemoveAt(0);
+                                player.inventory.pitchers[0].cupsPerPitcher = 15;
+                                if (player.inventory.pitchers.Count == 0)
                                 {
                                     break;
                                 }
+                            }
+                            if(player.inventory.cups[0].numInInventory == 0)
+                            {
+                                break;
                             }
 
                         }
@@ -163,7 +168,7 @@ namespace LSGP
             for (int i = 0; i<customers.Count;i++)
             { 
             Random buyAgain = new Random();
-            int again = buyAgain.Next(1, 11);
+            int again = customers[0].rng1.Next(1, 11);
             if (again <= customers[i].chanceToBuyAgain)
             {
                     remainingCustomers.Add(customers[i]);
@@ -186,23 +191,29 @@ namespace LSGP
             weather.ActualDayWeather();
 
 
-            foreach (Customer customer in customers)
+            for(int i =0; i<customers.Count; i++)
             {
-                if (weather.condition == "Sunny")
+
+                if (weather.condition == weather.weatherConditions[3])
+
                 {
-                    customer.chanceToGoToStand += 2;
-                    customer.chanceToBuyColdLevel -= 3;
+                    customers[i].chanceToGoToStand += 2;
+                    customers[i].chanceToBuyColdLevel -= 3;
 
                 }
-                else if (weather.condition == "Rainy")
+
+                else if (weather.condition == weather.weatherConditions[1])
+
                 {
-                    customer.chanceToGoToStand -= 3;
-                    customer.chanceToBuyColdLevel += 5;
+                    customers[i].chanceToGoToStand -= 3;
+                    customers[i].chanceToBuyColdLevel += 5;
                 }
-                else if (weather.condition == "Thunder Storm")
+
+                else if (weather.condition == weather.weatherConditions[2])
+
                 {
-                    customer.chanceToGoToStand -= 10;
-                    customer.chanceToBuyColdLevel += 10;
+                    customers[i].chanceToGoToStand -= 10;
+                    customers[i].chanceToBuyColdLevel += 10;
                 }
             }
         }
@@ -211,9 +222,11 @@ namespace LSGP
         {
             
             GoToLemonadeStand();
-            if(player.pitcher.pitchers[0].numOfPitchers > 0)
+            if(player.inventory.pitchers[0].numOfPitchers > 0)
             { 
+
                 if(player.inventory.cups[0].numInInventory > 0)
+
                 {
                     if(customers.Count > 0)
                     {
@@ -236,7 +249,7 @@ namespace LSGP
                 
             
             dayCounter--;
-            player.pitcher.pitchers[0].numOfPitchers = 0;
+            player.inventory.pitchers[0].numOfPitchers = 0;
         }
 
     }

@@ -13,7 +13,7 @@ namespace LSGP
         public string input;
        public Recipe recipe;
         public Inventory inventory;
-        public Pitcher pitcher;
+       
         
 
         public Player()
@@ -21,7 +21,7 @@ namespace LSGP
             inventory = new Inventory();
             wallet = new Wallet();
             recipe = new Recipe(inventory) ;
-            pitcher = new Pitcher();
+           
         }
             
         
