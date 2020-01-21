@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace LSGP
 {
-    public class Day
+    public class Day : Weather
     {
         // member variables
-
-         public int dayCounter = 7;
-        public Weather weather;
-       public Player player;
+        Weather weather;
+        public int dayCounter = 7;
+        public Player player;
         Customer aaron;
         Customer alex;
         Customer david;
@@ -77,9 +76,6 @@ namespace LSGP
         {
            for(int i = 0; i<customers.Count; i++)
            { 
-                
-                
-
                     Random goToRandom = new Random();
                     int arrival = goToRandom.Next(1, 21);
 
@@ -119,6 +115,7 @@ namespace LSGP
                 int coldBuy = randomBasedOnColdness.Next(1, 21);
                 if (priceBuy <= remainingCustomers[i].chanceToBuyprice)
                 {
+
                     Console.WriteLine(remainingCustomers[i].name + " thinks the price is fair");
                     if (sweetBuy <= remainingCustomers[i].chanceToBuySweetLevel)
                     {
@@ -130,34 +127,41 @@ namespace LSGP
                             player.wallet.NewBalance();
                             player.pitcher.cupsPerPitcher--;
                             customers.Add(remainingCustomers[i]);
-                            if(player.pitcher.cupsPerPitcher == 0)
+                            if (player.pitcher.cupsPerPitcher == 0)
                             {
                                 player.pitcher.pitchers.RemoveAt(0);
                                 player.pitcher.cupsPerPitcher = 15;
-                                if(player.pitcher.pitchers.Count == 0)
+                                if (player.pitcher.pitchers.Count == 0)
                                 {
                                     break;
                                 }
                             }
-                            
+
                         }
                         else
                         {
                             Console.WriteLine(remainingCustomers[i].name + " thinks the tempature of the lemonade is bad");
-                                
+
+
+
+
+
                         }
                     }
                     else
                     {
+
                         Console.WriteLine(remainingCustomers[i].name + " thinks the recipe is bad");
-                            
+
+
                     }
                 }
                 else
                 {
+
                     Console.WriteLine(remainingCustomers[i].name + " thinks the price is unfair");
-                        
                 }
+
 
             }
             
@@ -178,7 +182,9 @@ namespace LSGP
             }
             else
             {
+
                 Console.WriteLine(customers[i].name + " is satisfied");
+
             }
                 
         }
@@ -186,22 +192,24 @@ namespace LSGP
         public void CheckActualWeather()
         {
            
-           
+
+            ActualDayWeather();
+
 
             foreach (Customer customer in customers)
             {
-                if (weather.condition == "Sunny")
+                if (condition == "Sunny")
                 {
                     customer.chanceToGoToStand += 2;
                     customer.chanceToBuyColdLevel -= 3;
 
                 }
-                else if (weather.condition == "Rainy")
+                else if (condition == "Rainy")
                 {
                     customer.chanceToGoToStand -= 3;
                     customer.chanceToBuyColdLevel += 5;
                 }
-                else if (weather.condition == "Thunder Storm")
+                else if (condition == "Thunder Storm")
                 {
                     customer.chanceToGoToStand -= 10;
                     customer.chanceToBuyColdLevel += 10;
@@ -211,9 +219,9 @@ namespace LSGP
 
         public void MasterCustomerBuyLemonade()
         {
-            CheckActualWeather();
+            
             GoToLemonadeStand();
-            if(player.pitcher.pitchers.Count > 0)
+            if(player.pitcher.pitchers[0].numOfPitchers > 0)
             { 
                 if(player.inventory.cups[0].numInInventory >0)
                 {
@@ -238,7 +246,7 @@ namespace LSGP
                 
             
             dayCounter--;
-            player.pitcher.pitchers.Clear();
+            player.pitcher.pitchers[0].numOfPitchers = 0;
         }
 
     }

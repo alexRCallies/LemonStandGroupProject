@@ -15,6 +15,7 @@ namespace LSGP
         List<Items> storeStock = new List<Items>();
         public int howManyToBuy;
         Player player;
+        Weather forecast = new Weather();
         
         public double finalSale;
         public Store(Player player)
@@ -28,12 +29,11 @@ namespace LSGP
         }
         public void PrintStoreStock()
         {
+            Console.WriteLine("\n          Welcome to the store!");
             foreach (Items item in storeStock)
             {
                 Console.WriteLine($"Name: {item.name + " Price: $" + item.price}");
             }
-           
-
         }
         public void BuyLemons()//Single responsibility principle, used solely for buying lemons and no other ingredient. - Alex
         {
@@ -145,6 +145,8 @@ namespace LSGP
         }
         public void BuyItems()//Open/Closed principle, methods can be extended for further gameplay without any drastic repercussions. -alex
         {
+            Console.WriteLine("\n\nLets head to the store to stock up for your first day!");
+            forecast.MasterForecast();
             PrintStoreStock();
             player.inventory.ShowCurrentInventory();
             player.wallet.NewBalance();

@@ -47,7 +47,7 @@ namespace LSGP
         public void ForecastTemperature()  // SINGLE RESPONSIBILITY EXAMPLE - random used to select the forcast temp - 
         {
             temperature = random.Next(45, 95);
-            Console.WriteLine("\nThe Forecast for today is " + predictedForecast + " & " + temperature + " degrees.");
+            Console.WriteLine("The Forecast for today is " + predictedForecast + " & " + temperature + " degrees.");
         }
 
         public void ActualConditions()  // SINGLE RESPONSIBILITY EXAMPLE - random used to select the actual weather -

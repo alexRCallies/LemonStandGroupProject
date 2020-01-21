@@ -28,6 +28,7 @@ namespace LSGP
         public Recipe(Inventory inventory)
         {
             this.inventory = inventory;
+            pitcher.pitchers.Add(pitcher);
             
         }
         public void AddLemonsToLemonade()
@@ -165,6 +166,7 @@ namespace LSGP
         }
         public void MakeAPitcherOFLemonade()
         {
+            Console.WriteLine("\nLet make some lemonade :-)");
             AddLemonsToLemonade();
             AddSugarToLemonade();
             AddIceToLemonade();
@@ -177,12 +179,13 @@ namespace LSGP
             while (howManyPitchers >= 1)
             {
                 howManyPitchers--;
-                pitcher.pitchers.Add(pitcher);
+                pitcher.pitchers[0].numOfPitchers++;
             }
             pitcher.PrintPitchers();
-            Console.WriteLine("How much to sell the cups for?");
+           
             try
             {
+                Console.WriteLine("How much should we sell each cup for?");
                 pricePerCup = double.Parse(Console.ReadLine());
             }
             catch (FormatException)

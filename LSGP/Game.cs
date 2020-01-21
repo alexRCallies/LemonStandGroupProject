@@ -10,8 +10,8 @@ namespace LSGP
     {
         Player player;
         Store store;
-        Weather weather = new Weather();
 
+        Weather weather;
 
         Day day;
 
@@ -92,13 +92,12 @@ namespace LSGP
         }
         public void PlayerChoice()
         {
-            Console.WriteLine("\nWhat do you want to do Store/Inventory/Recipe/Play?");
+            Console.WriteLine("\nWhat do you want to do Store/Inventory?");
             player.input = Console.ReadLine();
             if ((player.input == "Store") || (player.input == "store") || (player.input == "sTore") || (player.input == "STORE")
                 || (player.input == "stOre") || (player.input == "StoRe") || (player.input == "storE") || (player.input == "S"))
             {
                 store = new Store(player);
-                day.weather.MasterForecast();
                 store.BuyItems();
                 PlayerChoice();
             }
@@ -131,7 +130,7 @@ namespace LSGP
         {
             day = new Day(player);
             store = new Store(player);
-            weather.MasterForecast();
+            weather = new Weather();
             store.BuyItems();
             player.inventory.ShowCurrentInventory();
             player.recipe.MakeAPitcherOFLemonade();
