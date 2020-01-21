@@ -15,7 +15,7 @@ namespace LSGP
         List<Items> storeStock = new List<Items>();
         public int howManyToBuy;
         Player player;
-        Weather forecast = new Weather();
+        
         
         public double finalSale;
         public Store(Player player)
@@ -146,7 +146,6 @@ namespace LSGP
         public void BuyItems()//Open/Closed principle, methods can be extended for further gameplay without any drastic repercussions. -alex
         {
             Console.WriteLine("\n\nLets head to the store to stock up for your first day!");
-            forecast.MasterForecast();
             PrintStoreStock();
             player.inventory.ShowCurrentInventory();
             player.wallet.NewBalance();

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace LSGP
 {
-    public class Day : Weather
+    public class Day
     {
         // member variables
-        Weather weather;
+        public Weather weather = new Weather();
         public int dayCounter = 7;
         public Player player;
         Customer aaron;
@@ -36,7 +36,6 @@ namespace LSGP
 
         public Day(Player player)
         {
-            weather = new Weather();
             this.player = player;
             this.aaron = new Customer("A-a-ron", 14, 15, 15, 12, 15, 5);
             this.alex = new Customer("Alex", 21, 16, 14, 15, 12, 4);
@@ -141,28 +140,18 @@ namespace LSGP
                         else
                         {
                             Console.WriteLine(remainingCustomers[i].name + " thinks the tempature of the lemonade is bad");
-
-
-
-
-
                         }
                     }
                     else
                     {
 
                         Console.WriteLine(remainingCustomers[i].name + " thinks the recipe is bad");
-
-
                     }
                 }
                 else
                 {
-
                     Console.WriteLine(remainingCustomers[i].name + " thinks the price is unfair");
                 }
-
-
             }
             
             BuyAgain();
@@ -189,27 +178,28 @@ namespace LSGP
                 
         }
 }
+        
         public void CheckActualWeather()
         {
            
 
-            ActualDayWeather();
+            weather.ActualDayWeather();
 
 
             foreach (Customer customer in customers)
             {
-                if (condition == "Sunny")
+                if (weather.condition == "Sunny")
                 {
                     customer.chanceToGoToStand += 2;
                     customer.chanceToBuyColdLevel -= 3;
 
                 }
-                else if (condition == "Rainy")
+                else if (weather.condition == "Rainy")
                 {
                     customer.chanceToGoToStand -= 3;
                     customer.chanceToBuyColdLevel += 5;
                 }
-                else if (condition == "Thunder Storm")
+                else if (weather.condition == "Thunder Storm")
                 {
                     customer.chanceToGoToStand -= 10;
                     customer.chanceToBuyColdLevel += 10;
@@ -223,7 +213,7 @@ namespace LSGP
             GoToLemonadeStand();
             if(player.pitcher.pitchers[0].numOfPitchers > 0)
             { 
-                if(player.inventory.cups[0].numInInventory >0)
+                if(player.inventory.cups[0].numInInventory > 0)
                 {
                     if(customers.Count > 0)
                     {
