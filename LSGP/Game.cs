@@ -34,6 +34,33 @@ namespace LSGP
             Console.Clear();
             return player.name;
         }
+       public void CheckPlayConditions()
+        {
+            int numOfLemonsAndSugar;
+            numOfLemonsAndSugar = player.inventory.lemons[0].numInInventory + player.inventory.sugarCubes[0].numInInventory;
+            if(numOfLemonsAndSugar > 6 && player.wallet.Money <= 0)
+            {
+                Console.WriteLine("You do not have enough money to buy the minimum amount of stock");
+                User_Interface.End();
+            }
+        }
+        public void CheckEndCondtions()
+        {
+            if(dayCounter == 0)
+            {
+                Console.WriteLine("\nYou ended the week with:");
+                player.wallet.NewBalance();
+                Console.WriteLine("\nTotal profit: $" + weeklyProfit);
+                Console.ReadLine();
+                User_Interface.End();
+            }
+            else
+            {
+                weeklyProfit += day.dailyProfit;
+                dayCounter--;
+                BeginDay();
+            }
+        }
        
         public void BeginDay()
         {
@@ -44,26 +71,11 @@ namespace LSGP
             day.weather.MasterForecast();
             store.BuyItems();
             player.inventory.ShowCurrentInventory();
+            CheckPlayConditions();
             player.recipe.MakeAPitcherOFLemonade();
             day.weather.ActualDayWeather();
             day.MasterCustomerBuyLemonade();
-            
-            if(dayCounter > 0)
-            {
-                weeklyProfit += day.dailyProfit;
-                dayCounter--;
-                BeginDay();
-                
-            }
-            else
-            {
-                Console.WriteLine("\nYou ended the week with:");
-                player.wallet.NewBalance();
-                Console.WriteLine("\nTotal profit: $"+weeklyProfit);
-                Console.ReadLine();
-
-            }
-
+            CheckEndCondtions();
         }
        
     }
