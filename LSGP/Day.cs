@@ -253,7 +253,35 @@ namespace LSGP
                 {
                     remainingCustomers[i].chanceToBuySweetLevel -= 25;
                 }
-                
+                if (weather.temperature <= 85)
+                {
+                    remainingCustomers[i].chanceToBuyColdLevel -= 20;
+                }
+                else if (weather.temperature >= 45)
+                {
+                    remainingCustomers[i].chanceToBuyColdLevel += 35;
+
+                }
+                if(player.inventory.pitchers[0].coldLevel == 1)
+                {
+                    remainingCustomers[i].chanceToBuyColdLevel += 5;
+                }
+                else if(player.inventory.pitchers[0].coldLevel == 2)
+                {
+                    remainingCustomers[i].chanceToBuyColdLevel += 10;
+                }
+                else if(player.inventory.pitchers[0].coldLevel == 3)
+                {
+                    remainingCustomers[i].chanceToBuyColdLevel += 15;
+                }
+                else if(player.inventory.pitchers[0].coldLevel == 4)
+                {
+                    remainingCustomers[0].chanceToBuyColdLevel += 20;
+                }
+                else if(player.inventory.pitchers[0].coldLevel <= 5)
+                {
+                    remainingCustomers[0].chanceToBuyColdLevel += 25;
+                }
             }
         }
         public void MasterCustomerBuyLemonade()
@@ -268,6 +296,7 @@ namespace LSGP
                 {
                     if(customers.Count > 0)
                     {
+                        CheckOtherCondition();
                         BuyLemonade();
                     }
                     else
