@@ -83,7 +83,14 @@ namespace TrashCollectionApp.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
+                    if (User.IsInRole("Customer"))
+                    {
+                        return RedirectToAction("Create", "Customers");
+                    }
+                    else
+                    {
+                        return RedirectToAction("Create", "Employees");
+                    }
                 }
                 if (result.RequiresTwoFactor)
                 {

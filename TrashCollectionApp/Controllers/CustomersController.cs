@@ -61,6 +61,7 @@ namespace TrashCollectionApp.Controllers
             if (ModelState.IsValid)
             {
                 var IdentityUserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+                customer.IdentityUserId = IdentityUserId;
                 _context.Add(customer);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
