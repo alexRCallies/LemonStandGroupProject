@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using TrashCollectionApp.Data;
 
 namespace TrashCollectionApp.Areas.Identity.Pages.Account
 {
@@ -20,6 +21,9 @@ namespace TrashCollectionApp.Areas.Identity.Pages.Account
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        private readonly ApplicationDbContext _context;
+        private readonly RoleManager<IdentityRole> _roleManager;
+   
 
         public LoginModel(SignInManager<IdentityUser> signInManager, 
             ILogger<LoginModel> logger,
@@ -82,15 +86,9 @@ namespace TrashCollectionApp.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
+
                     _logger.LogInformation("User logged in.");
-                    if (User.IsInRole("Customer"))
-                    {
-                        return RedirectToAction("Create", "Customers");
-                    }
-                    else
-                    {
-                        return RedirectToAction("Create", "Employees");
-                    }
+                    
                 }
                 if (result.RequiresTwoFactor)
                 {
